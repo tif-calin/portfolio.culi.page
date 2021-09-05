@@ -8,10 +8,8 @@ import {
 import Home from '../home/HomePage';
 
 function App() {
-  return <>
-    <header></header>
-
-    <Router>
+  return (
+    <Router className="App">
       <main>
         <Switch>
 
@@ -21,10 +19,10 @@ function App() {
 
         </Switch>
       </main>
-    </Router>
 
-    <footer></footer>
-  </>;
+      <footer><a href="https://github.com/tif-calin/portfolio.culi.page">&#x1f12f; steal this content</a></footer>
+    </Router>
+  );
 }
 
 export default App;
