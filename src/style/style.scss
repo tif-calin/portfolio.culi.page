@@ -1,9 +1,26 @@
-@import url('./_common.css');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('_normalize.css');
+@import url('_reset.css');
+
+html {
+  --color-bg: #f3e9c6;
+  --color-bg-secondary: #c1605c;
+  --color-bg-tertiary: #98bec8;
+  --color-text: #1b2729;
+  --color-text-inverse: #fefefe;
+
+  --padding: 1rem;
+  --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-headings: "Yeseva One", sans-serif;
+  overflow-x: hidden;
+}
 
 body {
-  background-color: var(--color-background);
   color: var(--color-text);
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Ubuntu', sans-serif;
+  background-repeat: repeat;
+  background: linear-gradient(var(--color-bg), var(--color-bg)), url('./noise.svg');
+
+  font-family: var(--font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -11,13 +28,88 @@ body {
   align-items: center;
 }
 
+#root {
+  width: 50%;
+  min-width: 360px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &> * { 
+    width: 100%; 
+    min-width: 100%;
+    padding: var(--padding);
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 1rem;
+  
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 0.5rem;
+    }
+  }
+
+  main {
+    flex: 1 0 auto;
+    padding-bottom: 0;
+  }
+
+  footer {
+    a { 
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  }
+}
+
+/* other default styling for elements */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-#root {
-  width: 50%;
-  min-width: 360px;
+/* default styling for headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+}
 
-  &> * { width: 100%; }
+h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+h6 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.8;
 }
