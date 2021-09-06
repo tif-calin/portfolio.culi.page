@@ -5,33 +5,20 @@
   justify-content: center;
   gap: 0;
 
-  .wave-top {
-    line-height: 0;
-    transform: rotate(180deg);
-
-    .shape-fill {
-      fill: var(--color-bg-secondary);
-    }
-
-    svg {
-      position: relative;
-      width: 100%;
-      height: 5rem;
-    }
-  }
-
   & > div {
     position: relative;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 
     & > section {
-      width: 50vw;
-      min-width: 360px;
+      width: 55vw;
+      min-width: 320px;
       min-height: 100%;
       padding: var(--padding);
+      line-height: 1.5em;
     }
 
     &:nth-child(1) {
@@ -40,7 +27,7 @@
         align-items: center;
         min-height: calc(100vh - 6rem);
 
-        img {
+        & > img {
           max-width: 65%;
           min-width: 35rem;
           //shape-outside: polygon(4.82% 9.46%, 21.8% 17.69%, 19.49% 7.84%, 32.68% 4.81%, 48.92% 23%, 71.71% 3.13%, 94.77% 8.37%, 82.89% 36.26%, 100.11% 36.64%, 76.9% 47.16%, 99.96% 69.78%, 96.43% 86.43%, 75.69% 83.48%, 70.58% 99.96%, 50.62% 89.37%, 29.08% 99.9%, 27.91% 87.85%, 1.13% 80.7%, 1.84% 68.93%, 23.76% 48.59%, 0.87% 39.31%, 0.76% 16.09%);
@@ -52,15 +39,45 @@
         }
 
         span {
-          font-size: 2rem;
+          font-size: 1.5rem;
           font-weight: 700;
         }
+
+        .highlight {
+          color: var(--color-bg-secondary);
+          font: inherit;
+          font-weight: inherit;
+          font-size: inherit;
+        }
+      }
+    }
+
+    &.wave-top {
+      line-height: 0;
+      transform: rotate(180deg);
+
+      .shape-fill {
+        fill: var(--color-bg-secondary);
+      }
+
+      svg {
+        position: relative;
+        width: 100%;
+        height: 5rem;
       }
     }
 
     &:nth-of-type(3) {
       background-color: var(--color-bg-secondary);
       color: var(--color-text-inverse);
+
+      section {
+        margin: 5rem 0;
+
+        h3 {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 }
