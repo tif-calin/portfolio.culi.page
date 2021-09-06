@@ -6,6 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Home from '../home/HomePage';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         </Switch>
       </main>
 
-      <footer><a href="https://github.com/tif-calin/portfolio.culi.page">&#x1f12f; steal this content</a></footer>
+      <Footer/>
     </Router>
   );
 }
