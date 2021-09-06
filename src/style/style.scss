@@ -7,7 +7,7 @@ html {
   --color-bg: #f3e9c6;
   --color-bg-secondary: #c1605c;
   --color-bg-tertiary: #98bec8;
-  --color-text: #1b2729;
+  --color-text: #1b272f;
   --color-text-inverse: #fefefe;
 
   --padding: 1rem;
@@ -39,8 +39,8 @@ body {
 
   &> * { 
     padding: var(--padding);
-    width: 50vw;
-    min-width: 360px;
+    width: 55vw;
+    min-width: 320px;
   }
 
   header {
@@ -64,9 +64,25 @@ body {
   }
 
   footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
     a { 
       color: var(--color-text);
       text-decoration: none;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        max-width: 1.5rem;
+        height: 1.5rem;
+      }
     }
   }
 }
@@ -113,4 +129,56 @@ h6 {
   font-size: calc(var(--font-size) * 1.1);
   font-weight: 500;
   opacity: 0.8;
+}
+
+.InlineToggleText {
+  display: none;
+
+  & + * > span {
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 90%;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      background: var(--color-text-inverse);
+      transition: top 0.2s ease-in-out;
+    }
+  }
+
+  & + * + span {
+    display: none;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+    overflow: hidden;
+
+    &::before {
+      content: ' (';
+    }
+
+    &::after {
+      content: ')';
+    }
+  }
+
+  // hovered
+  & + *:hover + span, 
+  &:checked + * + span {
+    display: inline;
+  }
+
+  // selected
+  & + * > span:hover::after,
+  &:checked + * > span::after {
+    top: -1px;
+    mix-blend-mode: difference;
+  }
 }
