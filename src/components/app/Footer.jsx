@@ -9,10 +9,16 @@ const Footer = () => {
       <a href="https://github.com/tif-calin/portfolio.culi.page">
         &#x1f12f; steal this
       </a>
-      <ul class="links">
-        <img src={email} alt="email" />
-        <img src={linkedin} alt="linkedin" />
-        <img src={github} alt="github" />
+      <ul className="links">
+        <a href="mailto:culitif@tuta.io">
+          <img src={email} alt="email"/>
+        </a>
+        <a href="https://www.linkedin.com/in/tif-calin/">
+          <img src={linkedin} alt="linkedin"/>
+        </a>
+        <a href="https://github.com/tif-calin/">
+          <img src={github} alt="github" />
+        </a>
       </ul>
     </footer>
   </>;
