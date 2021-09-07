@@ -1,19 +1,19 @@
 import React from 'react';
 
-const InlineToggleText = ({text, extraText, name, value}) => {
+const InlineTextRadio = ({ text, name, value, checked }) => {
   const id = Math.random().toString(36).substring(7);
 
   return <>
     <input 
-      className="InlineToggleText" 
+      className="InlineTextRadio" 
       name={name} 
-      type="checkbox"
+      type="radio"
       value={value}
       id={id}
+      defaultChecked={checked}
     />
     <label htmlFor={id}><span>{text}</span></label>
-    <span>{extraText}</span>
   </>;
 };
 
-export default InlineToggleText;
+export default InlineTextRadio;
