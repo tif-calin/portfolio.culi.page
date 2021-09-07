@@ -7,26 +7,28 @@ import svg from './dentata.svg';
 const greetings = ['Hi', 'Hello', 'Hey', 'Howdy', 'Helloooo', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)].toLowerCase();
 
+/*
+NOW page: Elm, Deno, Rust, Docker, TypeScript
+*/
+
 const Home = () => {
 
   const [output, setOutput] = React.useState(0);
 
   const outputs = [
     <div>
-      e.g. react, javascript, nodejs, typescript, docker
-
-      see projects below
+      <p>I've worked on small teams for numerous full-stack applications using tools like React, NodeJS, Express, and more. I have a solid understanding of Javascript and Python and use them almost daily on personal and team projects.</p>
+      <br/>
+      <p>See some of my projects below for some examples.</p>
     </div>,
     <div>
-      e.g. deno, rust, elm
-
-      see me writing things in a bunch of languages
+      <p>Tools like deno, Elm, and Rust might still have a long way to go before they gain wide adoption, but I find that learning how to use well-built tools like these can teach us a lot about how to best use the tools we're already using.</p>
+      <br/>
+      <p>Check out my <Link className="special" to="/now">now</Link> page to see what I'm currently obsessing over!</p>
     </div>,
     <div>
       <p>Modern HTML, CSS, and JavaScript are powerful and often-overlooked tools. When it comes to efficient, sustainable, and dependable web design, nothing really beats a static site with minimal dependencies.</p>
-
       <br/>
-
       <p>You check out some of the tools I've built for myself using these tools <a className="special" href="https://culi.page/toys/">here!</a></p>
     </div>
   ];
@@ -54,11 +56,15 @@ const Home = () => {
         <h3>What do you do?</h3>
         <div>
           <form onChange={e => setOutput(e.target.value)}>
-            I place a focus on having a solid grasp of <InlineTextRadio text="industry standard tools" name="overview" value={0} checked={true}/> and I genuinely enjoy picking up <InlineTextRadio text="up-and-coming technologies" name="overview" value={1}/>, but I also have a deep appreciation for making things <InlineTextRadio text="by hand" name="overview" value={2}/>. I'm a versatile developer with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory.
+            I place a focus on having a solid grasp of <InlineTextRadio text="industry standard tools" name="overview" value={0} checked={true}/> and I genuinely enjoy picking up <InlineTextRadio text="up-and-coming technologies" name="overview" value={1}/>, but I also have a deep appreciation for making things <InlineTextRadio text="by hand" name="overview" value={2}/>. 
           </form>
           <p>
-            Check out my <Link to="/now">now</Link> page to see what I'm currently obsessing over.
+            I'm a versatile developer and an eclectic learner with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory. 
           </p>
+          <br/>
+          <p>
+            <Link to="/now">Click here to see what I'm doing now.</Link>
+            </p>
         </div>
 
         <output>{outputs[output % outputs.length]}</output>
