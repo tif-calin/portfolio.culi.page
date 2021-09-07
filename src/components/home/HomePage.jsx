@@ -57,7 +57,7 @@ const Home = () => {
             I place a focus on having a solid grasp of <InlineTextRadio text="industry standard tools" name="overview" value={0} checked={true}/> and I genuinely enjoy picking up <InlineTextRadio text="up-and-coming technologies" name="overview" value={1}/>, but I also have a deep appreciation for making things <InlineTextRadio text="by hand" name="overview" value={2}/>. I'm a versatile developer with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory.
           </form>
           <p>
-            Check out my <Link className="special" to="/now">now</Link> page to see what I'm currently obsessing over.
+            Check out my <Link to="/now">now</Link> page to see what I'm currently obsessing over.
           </p>
         </div>
 
