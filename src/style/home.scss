@@ -70,12 +70,36 @@
     &:nth-of-type(3) {
       background-color: var(--color-bg-secondary);
       color: var(--color-text-inverse);
+      padding: 5rem 0;
 
       section {
-        margin: 5rem 0;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
 
         h3 {
-          margin-bottom: 1rem;
+          grid-area: a;
+          min-width: 100%;
+        }
+
+        & > div:first-of-type {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          flex: 1 1;
+        }
+
+        output {
+          color: var(--color-text);
+          border-radius: var(--radius);
+          background-color: var(--color-text-inverse);
+          padding: calc(3 * var(--padding));
+          box-shadow: 0 0 0.5rem #fefefe99;
+          display: flex;
+          min-width: min(500px, 100%);
+          width: calc(50% - 2rem);
+          min-height: 3rem;
+          flex: 1 1;
         }
       }
     }

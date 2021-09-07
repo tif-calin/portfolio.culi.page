@@ -10,7 +10,8 @@ html {
   --color-text: #1b272f;
   --color-text-inverse: #fefefe;
 
-  --padding: 1rem;
+  --padding: 0.5rem;
+  --radius: 0.5rem;
   --font: "Dosis", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-headings: "Yeseva One", sans-serif;
   --font-size: 1.4rem;
@@ -21,7 +22,7 @@ html {
 body {
   color: var(--color-text);
   background-repeat: repeat;
-  background: linear-gradient(var(--color-bg), var(--color-bg)), url('./ruins.svg');
+  background: url('./noise.svg'), linear-gradient(var(--color-bg), var(--color-bg));
   font-family: var(--font);
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
@@ -80,8 +81,8 @@ body {
       gap: 1rem;
 
       img {
-        max-width: 1.5rem;
-        height: 1.5rem;
+        max-width: var(--font-size);
+        height: var(--font-size);
       }
     }
   }
@@ -131,6 +132,78 @@ h6 {
   opacity: 0.8;
 }
 
+a { 
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.special {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &::before, &::after {
+    content: '';
+    inset: -2px;
+    position: absolute;
+    mix-blend-mode: difference;
+    transition: all 0.2s ease-in-out;
+    border-top-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+  }
+
+  &::before {
+    background-color: var(--color-text);
+    right: 60%;
+    bottom: 60%;
+  }
+
+  &::after {
+    background-color: var(--color-text-inverse);
+    top: 60%;
+    left: 60%;
+  }
+
+  &:hover {
+    &::before, &::after {
+      inset: -2px;
+    }
+  };
+}
+
+.InlineTextRadio {
+  display: none;
+
+  & + label > span {
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      top: 90%;
+      background: var(--color-text-inverse);
+      transition: top 0.2s ease-in-out;
+    }
+  }
+
+  // selected
+  & + label > span:hover::after,
+  &:checked + label > span::after {
+    top: -1px;
+    mix-blend-mode: difference;
+  }
+}
+
 .InlineToggleText {
   display: none;
 
@@ -145,10 +218,8 @@ h6 {
     &::after {
       content: '';
       position: absolute;
+      inset: -1px;
       top: 90%;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
       background: var(--color-text-inverse);
       transition: top 0.2s ease-in-out;
     }

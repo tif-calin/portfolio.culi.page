@@ -1,14 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../style/home.scss';
-import InlineToggleText from '../InlineToggleText';
+import InlineTextRadio from '../InlineTextRadio';
 import svg from './dentata.svg';
 
+const greetings = ['Hi', 'Hello', 'Hey', 'Howdy', 'Helloooo', 'Hiya'];
+const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)].toLowerCase();
+
 const Home = () => {
+
+  const [output, setOutput] = React.useState(0);
+
+  const outputs = [
+    <div>
+      e.g. react, javascript, nodejs, typescript, docker
+
+      see projects below
+    </div>,
+    <div>
+      e.g. deno, rust, elm
+
+      see me writing things in a bunch of languages
+    </div>,
+    <div>
+      <p>Modern HTML, CSS, and JavaScript are powerful and often-overlooked tools. When it comes to efficient, sustainable, and dependable web design, nothing really beats a static site with minimal dependencies.</p>
+
+      <br/>
+
+      <p>You check out some of the tools I've built for myself using these tools <a className="special" href="https://culi.page/toys/">here!</a></p>
+    </div>
+  ];
+
   return <div className="Home">
     <div>
       <section>
         <div>
-          <h1>hello<span className="highlight">,</span> i<span className="highlight">'</span>m culi</h1>
+          <h1>{randomGreeting}<span className="highlight">,</span> i<span className="highlight">'</span>m culi</h1>
           <span>a full-stack software engineer</span>
         </div>
 
@@ -25,15 +52,16 @@ const Home = () => {
     <div>
       <section>
         <h3>What do you do?</h3>
-        <p>
-          I really value having a solid understanding of <InlineToggleText text="industry standard tools" extraText="react, javascript, nodejs, typescript, docker" name="overview"/> and I love learning about <InlineToggleText text="up and coming technologies" extraText="deno, rust, elm" name="overview"/>, but I also have a deep appreciation for making things <InlineToggleText text="by hand" extraText="html, css, javascript" name="overview"/>. I'm a versatile developer with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory.
-        </p>
+        <div>
+          <form onChange={e => setOutput(e.target.value)}>
+            I place a focus on having a solid grasp of <InlineTextRadio text="industry standard tools" name="overview" value={0} checked={true}/> and I genuinely enjoy picking up <InlineTextRadio text="up-and-coming technologies" name="overview" value={1}/>, but I also have a deep appreciation for making things <InlineTextRadio text="by hand" name="overview" value={2}/>. I'm a versatile developer with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory.
+          </form>
+          <p>
+            Check out my <Link className="special" to="/now">now</Link> page to see what I'm currently obsessing over.
+          </p>
+        </div>
 
-        <br/>
-
-        <p>
-          Check out my now page to see what worlds I'm currently diving into.
-        </p>
+        <output>{outputs[output % outputs.length]}</output>
       </section>
     </div>
   </div>;
