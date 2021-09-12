@@ -12,7 +12,9 @@ const InlineTextRadio = ({ text, name, value, checked }) => {
       id={id}
       defaultChecked={checked}
     />
-    <label htmlFor={id}><span>{text}</span></label>
+    <label htmlFor={id}>
+      <span className="toggle-text">{text}</span>
+    </label>
   </>;
 };
 
