@@ -7,8 +7,10 @@ html {
   --color-bg: #f3e9c6;
   --color-bg-secondary: #c1605c;
   --color-bg-tertiary: #98bec8;
+  --color-bg-quaternary: hsl(120, 39%, 75%);
   --color-text: #1b272f;
-  --color-text-inverse: #fefefe;
+  --color-border: #3f474f;
+  --color-text-inverse: #fafafa;
 
   --padding: 0.5rem;
   --radius: 0.5rem;
@@ -22,7 +24,7 @@ html {
 body {
   color: var(--color-text);
   background-repeat: repeat;
-  background: url('./noise.svg'), linear-gradient(var(--color-bg), var(--color-bg));
+  background: url('./noise.svg'), var(--color-bg);
   font-family: var(--font);
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
@@ -42,6 +44,10 @@ body {
     padding: var(--padding);
     width: 55vw;
     min-width: 320px;
+  }
+
+  hr {
+    border: 0.25rem solid var(--color-border);
   }
 
   header {
@@ -85,6 +91,19 @@ body {
         height: var(--font-size);
       }
     }
+  }
+}
+
+.section-heading {
+  a { position: relative; }
+
+  a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    bottom: -0.5rem;
+    border-bottom: 0.5rem solid var(--color-border);
   }
 }
 
@@ -158,14 +177,14 @@ a.special {
 
   &::before {
     background-color: var(--color-text);
-    right: 60%;
-    bottom: 60%;
+    right: 20%;
+    bottom: 90%;
   }
 
   &::after {
     background-color: var(--color-text-inverse);
-    top: 60%;
-    left: 60%;
+    top: 90%;
+    left: 20%;
   }
 
   &:hover {
@@ -185,22 +204,40 @@ a.special {
     z-index: 1;
     cursor: pointer;
     white-space: nowrap;
+    margin: 0 0.15rem;
 
     &::after {
+      border-radius: var(--radius);
       content: '';
       position: absolute;
-      inset: -1px;
-      top: 90%;
-      background: var(--color-text-inverse);
-      transition: top 0.2s ease-in-out;
+      inset: 0.5rem;
+      top: calc(100% + 1px);
+      bottom: -4px;
+      background: var(--color-border);
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
     }
   }
 
-  // selected
+  // selected or hovered
   & + label > span:hover::after,
   &:checked + label > span::after {
-    top: -1px;
+    border: 3px solid var(--color-border);
+    inset: -4px;
+    top: 0;
+    opacity: 1;
     mix-blend-mode: difference;
+  }
+
+  // selected
+  &:checked + label > span::after {
+    border-radius: var(--radius);
+    background: none;
+  }
+
+  // hovered
+  & + label > span:hover::after {
+    background: linear-gradient(120deg, var(--color-bg-tertiary), var(--color-bg-quaternary));
   }
 }
 
