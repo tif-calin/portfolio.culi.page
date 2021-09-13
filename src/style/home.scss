@@ -7,12 +7,6 @@
   }
 }
 
-.squiggle {
-  display: none;
-  max-height: 1rem;
-  animation: shift .5s linear infinite;
-}
-
 @keyframes shift {
   from { 
     transform: translateX(-10px);
@@ -22,7 +16,7 @@
   }
 }
 
-.Home {
+.HomePage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,12 +30,12 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    &:nth-child(n+4) section { min-height: 100vh; }
     &:nth-of-type(2n) section { color: var(--color-text); }
     &:nth-of-type(2n+3) section { color: var(--color-text-inverse); }
 
     & > section {
       display: flex;
+      flex-wrap: wrap;
       width: 55vw;
       min-width: 320px;
       min-height: 100%;
@@ -49,125 +43,224 @@
       line-height: 1.5em;
       gap: 1.5rem;
     }
+  }
+}
 
-    &:nth-child(1) {
-      section {
+#splash {
+  section {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-height: calc(100vh - 6rem);
+
+    & > img {
+      max-width: 65%;
+      min-width: 35rem;
+      shape-outside: circle();
+      //shape-outside: polygon(4.82% 9.46%, 21.8% 17.69%, 19.49% 7.84%, 32.68% 4.81%, 48.92% 23%, 71.71% 3.13%, 94.77% 8.37%, 82.89% 36.26%, 100.11% 36.64%, 76.9% 47.16%, 99.96% 69.78%, 96.43% 86.43%, 75.69% 83.48%, 70.58% 99.96%, 50.62% 89.37%, 29.08% 99.9%, 27.91% 87.85%, 1.13% 80.7%, 1.84% 68.93%, 23.76% 48.59%, 0.87% 39.31%, 0.76% 16.09%);
+      transition: filter 0.5s;
+
+      &:hover {
+        filter: drop-shadow(0 0 0.25rem var(--color-text));
+      }
+    }
+
+    h1 {
+      font-size: 5rem;
+      line-height: 1.05;
+    }
+
+    span {
+      font-size: 1.5rem;
+      font-weight: 550;
+    }
+
+    .highlight {
+      color: var(--color-bg-secondary);
+      font: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+    }
+  }
+}
+
+#about {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-inverse);
+  padding: 5rem 0;
+  box-shadow: 0 0.3rem 0.5rem -0.15rem #3f474f88;
+  border-bottom: 2px solid var(--color-border);
+  .toggle-text::after { 
+    opacity: 0; 
+    transition: all 0.5s;
+  }
+  .InlineTextRadio:checked + * .toggle-text::after,
+  &:hover .toggle-text::after { opacity: 1; }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    h3 {
+      display: flex;
+      flex-basis: 100%;
+      
+      // a { transition: all 0.2s; }
+      // a:hover { text-shadow: 2px 2px 2px var(--color-text), -2px -2px 2px var(--color-text); }
+    }
+
+    & > div:first-of-type {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      flex: 1 1;
+    }
+
+    output {
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+      //border-radius: var(--radius);
+      background: url('./noise.svg'), var(--color-bg);
+      padding: calc(3 * var(--padding));
+      box-shadow: inset 0 0 0.3rem 0 var(--color-text);
+      display: flex;
+      min-width: min(300px, 100%);
+      width: calc(50% - 2rem);
+      min-height: 3rem;
+      flex: 1 1;
+    }
+  }
+}
+
+#projects {
+  background: none;
+  color: var(--color-text-inverse);
+  padding: 5rem 0;
+
+  section {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    ul > li {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0000;
+      transition-property: border-color, box-shadow;
+      transition-duration: .2s;
+      position: relative;
+      width: calc(100% + 1rem);
+      gap: 0.5rem;
+      //cursor: pointer;
+      
+      .project-title { 
+        width: 100%; 
         display: flex;
         align-items: center;
-        min-height: calc(100vh - 6rem);
+        gap: var(--font-size);
 
-        & > img {
-          max-width: 65%;
-          min-width: 35rem;
-          shape-outside: circle();
-          //shape-outside: polygon(4.82% 9.46%, 21.8% 17.69%, 19.49% 7.84%, 32.68% 4.81%, 48.92% 23%, 71.71% 3.13%, 94.77% 8.37%, 82.89% 36.26%, 100.11% 36.64%, 76.9% 47.16%, 99.96% 69.78%, 96.43% 86.43%, 75.69% 83.48%, 70.58% 99.96%, 50.62% 89.37%, 29.08% 99.9%, 27.91% 87.85%, 1.13% 80.7%, 1.84% 68.93%, 23.76% 48.59%, 0.87% 39.31%, 0.76% 16.09%);
-          transition: filter 0.5s;
-
-          &:hover {
-            filter: drop-shadow(0 0 0.25rem var(--color-text));
-          }
-        }
-
-        h1 {
-          font-size: 5rem;
-          line-height: 1;
-        }
-
-        span {
-          font-size: 1.5rem;
-          font-weight: 700;
-        }
-
-        .highlight {
-          color: var(--color-bg-secondary);
-          font: inherit;
-          font-weight: inherit;
-          font-size: inherit;
+        img {
+          width: 0.9em;
+          border: none;
         }
       }
-    }
 
-    &.wave-top {
-      line-height: 0;
-      transform: rotate(180deg);
-      filter: drop-shadow(0 0.15rem 0.5rem var(--color-border));
-
-      .shape-fill {
-        fill: var(--color-bg-secondary);
+      & > img, div {
+        flex-basis: 200px;
+        flex-grow: 1;
+        margin: 0.5rem;
       }
 
-      svg {
-        position: relative;
-        width: 100%;
-        height: 5rem;
+      img { 
+        max-width: 300px; 
+        border: 2px solid var(--color-border);
+        border-radius: var(--radius);
+        margin: 0.5rem;
+      }
+
+      &:hover {
+        box-shadow: -0.5rem -0.5rem 0 0 var(--color-bg-secondary);
+        border-color: var(--color-border);
       }
     }
+  }
+}
 
-    &:nth-of-type(3) {
-      background-color: var(--color-bg-secondary);
-      color: var(--color-text-inverse);
-      padding: 5rem 0;
-      box-shadow: 0 0.5rem 0.5rem -0.25rem var(--color-border);
-      .toggle-text::after { 
-        opacity: 0; 
-        transition: all 0.5s;
-      }
-      .InlineTextRadio:checked + * .toggle-text::after,
-      &:hover .toggle-text::after { opacity: 1; }
+#tools {
+  background: var(--color-bg-secondary);
+  padding: 5rem 0;
+  clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+}
 
-      section {
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-        flex-wrap: wrap;
+#contact {
+  padding: 5rem 0;
 
-        h3 {
-          display: flex;
-          flex-basis: 100%;
-          
-          a { transition: all 0.2s; }
-          a:hover {
-            text-shadow: 2px 2px 2px var(--color-text), -2px -2px 2px var(--color-text);
-          }
-        }
+  section {
+    min-height: 10vh;
+  }
+      
+  .squiggle:hover {
+    animation-play-state: running;
+  }
 
-        & > div:first-of-type {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          flex: 1 1;
-        }
+  .section-heading {
+    text-align: center;
 
-        output {
-          color: var(--color-text);
-          border-radius: var(--radius);
-          background: url('./noise.svg'), var(--color-bg);
-          padding: calc(3 * var(--padding));
-          box-shadow: inset 0 0 0.5rem 0 var(--color-text);
-          display: flex;
-          min-width: min(500px, 100%);
-          width: calc(50% - 2rem);
-          min-height: 3rem;
-          flex: 1 1;
-        }
+    a {
+      background-repeat: repeat;
+      background-image: url('./squiggle.svg');
+
+      &::after {
+        display: none;
       }
     }
+  }
+}
 
-    &:nth-of-type(4) {
-      background-color: var(--color-bg-tertiary);
-      background: none;
-      color: var(--color-text-inverse);
-      padding: 5rem 0;
-    }
+.section-heading {
+  width: 100%;
 
-    &:nth-of-type(5) {
-      background-color: var(--color-bg-quaternary);
-      background: var(--color-bg-secondary);
-      padding: 5rem 0;
-    }
+  a { position: relative; }
 
-    &:nth-of-type(6) {
-      padding: 5rem 0;
-    }
+  a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    bottom: -0.5rem;
+    border-bottom: 0.5rem solid var(--color-border);
+  }
+}
+
+.wave-top {
+  line-height: 0;
+  transform: rotate(180deg);
+  filter: drop-shadow(0 -0.15rem 0.25rem var(--color-border));
+  &:hover + div .toggle-text::after { opacity: 1; }
+
+  .shape-fill {
+    fill: var(--color-bg-secondary);
+  }
+
+  svg {
+    position: relative;
+    width: 100%;
+    height: 5rem;
   }
 }
