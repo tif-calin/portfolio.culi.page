@@ -5,7 +5,8 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import Home from '../home/HomePage';
+import HomePage from '../home/HomePage';
+import NowPage from '../now/NowPage';
 import Footer from './Footer';
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
       <main>
         <Switch>
 
-          <Route exact path="/" component={Home}/>
-
+          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/now" component={NowPage}/>
           <Redirect to="/"/>
 
         </Switch>
