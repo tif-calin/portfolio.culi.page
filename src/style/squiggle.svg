@@ -8,7 +8,7 @@
   <style>
     .squiggle {
       max-height: 1rem;
-      animation: shift .5s linear infinite;
+      animation: shift 0.5s linear infinite;
       animation-play-state: running;
     }
     .squiggle:hover {

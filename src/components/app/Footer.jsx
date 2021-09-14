@@ -1,7 +1,7 @@
 import React from 'react';
 import email from './email.svg';
 import linkedin from './linkedin.svg';
-import github from './github.svg';
+import github from '../../style/github.svg';
 
 const Footer = () => {
   return <>
