@@ -6,10 +6,10 @@ import svg from './dentata.svg';
 import acpindexpic from './acpindex450.png';
 import bookbook from './bookbook900.png';
 import curbee from './curbee450.png';
-import github from '../app/github.svg';
+import github from '../../style/github.svg';
 
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Helloooo', 'Hiya'];
-const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)].toLowerCase();
+const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
 /*
 NOW page: Elm, Deno, Rust, Docker, TypeScript, GIS
@@ -79,47 +79,82 @@ const HomePage = () => {
       <section>
         <h3 className="section-heading"><a href="#projects">Projects</a></h3>
         <ul>
-          <li>
-            <img src={acpindexpic} alt="acp index site"/>
-            <div>
-              <h4 className="project-title">
-                <a href="https://acp-index.netlify.app/">ACP-Index</a>
-                <a href="https://github.com/index-alchemy">
-                  <img src={github} alt="github icon"/>
-                </a>
-              </h4>
+
+          <label>
+            <input type="radio"/>
+            <li>
+              <img src={acpindexpic} alt="acp index site"/>
+              <div>
+                <h4 className="project-title">
+                  <a href="https://acp-index.netlify.app/">ACP-Index</a>
+                  <a href="https://github.com/index-alchemy">
+                    <img src={github} alt="github icon"/>
+                  </a>
+                </h4>
+                <p>
+                  ACP-Index was designed to streamline the process of classroom projects. It allows students to rank project ideas in order that they'd prefer to work on them or pitch an entirely new idea. It uses students' rankings to assign teams in the most socially optimal way possible.
+                </p>
+              </div>
+            </li>
+          </label>
+
+          <label>
+            <input type="radio"/>
+            <li>
+              <div>
+                <h4 className="project-title">
+                  bookbook
+                  <a href="https://github.com/openbookbook/">
+                    <img src={github} alt="github icon"/>
+                  </a>
+                </h4>
+                <p>
+                  Democratic decision making for book clubs made easy. It utilizes ranked choice voting to allow members to rank their preferences for their next read. The app is dedicated to a minimalist setup design philosophy (inspired by when2meet) and requires no emails. Just make a "ballot" and an admin code and share the url with your friends!
+                </p>
+              </div>
+              <img src={bookbook} alt="bookbook site"/>
+            </li>
+          </label>
+
+          <label>
+            <input type="radio"/>
+            <li>
+              <img src={curbee} alt="curbee site"/>
+              <div>
+                <h4 className="project-title">
+                  Curbee
+                  <a href="https://github.com/curbee-by-curbees/">
+                    <img src={github} alt="github icon"/>
+                  </a>
+                </h4>
+                <p>
+                  Curbee is a community free stuff alert system. It allows users to post furniture or other "for free" items they find on the curb and utilizes Twilio to send an SMS alert to anyone who has alerts set up for that area.
+                </p>
+              </div>
+            </li>
+          </label>
+
+          <label>
+            <input type="radio"/>
+            <li>
+              <h4 className="project-title">Polylingual RCV</h4>
               <p>
-                ACP-Index was designed to streamline the process of classroom projects. It allows students to rank project ideas in order that they'd prefer to work on them or pitch an entirely new idea. It uses students' rankings to assign teams in the most socially optimal way possible.
+                Ranked choice voting, or instant runoff voting, is one of the simplest electoral system that allows voters to rank their preferred candidates in order. A personal project of mine has been to try to write an algorithm for RCV in as many programming languages as I can.
               </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4 className="project-title">bookbook</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio saepe nobis placeat beatae voluptate nam voluptas reiciendis fuga ipsam, at illo, nostrum libero odit quasi, quas nulla maxime quos ea!
-              </p>
-            </div>
-            <img src={bookbook} alt="bookbook site"/>
-          </li>
-          <li>
-            <img src={curbee} alt="curbee site"/>
-            <div>
-              <h4 className="project-title">Curbee</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque totam consequatur cum delectus maxime nobis voluptas laboriosam praesentium blanditiis soluta ipsam culpa impedit, provident, beatae rem esse earum similique!
-              </p>
-            </div>
-          </li>
-          <li>
-            <h4 className="project-title">Polylingual RCV</h4>
-            <p>
-              Ranked choice voting, or instant runoff voting, is one of the simplest electoral system that allows voters to rank their preferred candidates in order. A personal project of mine has been to try to write an algorithm for RCV in as many programming languages as I can.
-            </p>
-            <code>
-              hello
-            </code>
-          </li>
+              <div className="tabs" name="rcv-tabs">
+                <nav>
+                  <label><input type="radio" name="rcv-tabs"/><span>javascript</span></label>
+                  <label><input type="radio" name="rcv-tabs"/><span>typescript</span></label>
+                  <label><input type="radio" name="rcv-tabs"/><span>python</span></label>
+                  <label><input type="radio" name="rcv-tabs"/><span>elm</span></label>
+                </nav>
+                <code>
+                  hello
+                </code>
+              </div>
+            </li>
+          </label>
+
         </ul>
       </section>
     </div>
