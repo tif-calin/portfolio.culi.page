@@ -1,4 +1,5 @@
 import React from 'react';
+import Prism from 'prismjs';
 
 import acpindexpic from '../../assets/acpindex450.png';
 import bookbook from '../../assets/bookbook900.png';
@@ -66,6 +67,15 @@ const rcvCodes = {
 
 const ProjectsSection = () => {
   const [rcvCode, setRcvCode] = React.useState('javascript');
+
+  React.useEffect(() => {
+    const precode = document.querySelector('pre > code');
+    Prism.highlightElement(precode);
+  }, [rcvCode]);
+
+  const handleRCVChange = e => {
+    setRcvCode(e.target.value);
+  }
 
   return <>
     <div id="projects" className="ProjectsSection">
@@ -137,19 +147,40 @@ const ProjectsSection = () => {
               <div className="tabs" name="rcv-tabs">
                 <nav>
                   <label>
-                    <input type="radio" name="rcv-tabs" value="javascript" defaultChecked={true}/>
+                    <input 
+                      type="radio" 
+                      name="rcv-tabs" 
+                      value="javascript" 
+                      defaultChecked={true}
+                      onClick={handleRCVChange}
+                    />
                     <span>javascript</span>
                   </label>
                   <label>
-                    <input type="radio" name="rcv-tabs" value="typescript"/>
+                    <input 
+                      type="radio" 
+                      name="rcv-tabs" 
+                      value="typescript"
+                      onClick={handleRCVChange}
+                    />
                     <span>typescript</span>
                   </label>
                   <label>
-                    <input type="radio" name="rcv-tabs" value="python"/>
+                    <input 
+                      type="radio" 
+                      name="rcv-tabs" 
+                      value="python"
+                      onClick={handleRCVChange}
+                    />
                     <span>python</span>
                   </label>
                   <label>
-                    <input type="radio" name="rcv-tabs" value="elm"/>
+                    <input 
+                      type="radio" 
+                      name="rcv-tabs" 
+                      value="elm"
+                      onClick={handleRCVChange}
+                    />
                     <span>elm</span>
                   </label>
                 </nav>
