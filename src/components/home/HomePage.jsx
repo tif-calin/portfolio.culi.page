@@ -1,24 +1,34 @@
 import React from 'react';
+import 'prismjs';
 import { Link } from 'react-router-dom';
-import '../../style/home.scss';
 import InlineTextRadio from '../InlineTextRadio';
-import svg from './dentata.svg';
-import acpindexpic from './acpindex450.png';
-import bookbook from './bookbook900.png';
-import curbee from './curbee450.png';
-import github from '../../style/github.svg';
+import '../../style/home.scss';
+
+import svg from '../../assets/dentata.svg';
+import ProjectsSection from './ProjectsSection';
 
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Helloooo', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
 /*
-NOW page: Elm, Deno, Rust, Docker, TypeScript, GIS
+NOW page: Elm, Deno, Rust, Docker, TypeScript, GIS, rot.js (https://ondras.github.io/rot.js/hp/)
+
+now page
+ - status: looking for work
+ - projects: (fixing up, making new)
+ - reading list: (3 books)
+
+NOW
+ - learning: Elm
+ - projects: votevote, catfood.fyi
+
+redis!!!
+elasticsearch
 */
 
 const HomePage = () => {
 
   const [output, setOutput] = React.useState(0);
-
   const outputs = [
     <div>
       <p>I've worked on small teams for numerous full-stack applications using tools like React, NodeJS, Express, and more. I have a solid understanding of Javascript and Python and use them almost daily on personal and team projects.</p>
@@ -75,93 +85,31 @@ const HomePage = () => {
       </section>
     </div>
 
-    <div id="projects">
-      <section>
-        <h3 className="section-heading"><a href="#projects">Projects</a></h3>
-        <ul>
-
-          <label>
-            <input type="radio"/>
-            <li>
-              <img src={acpindexpic} alt="acp index site"/>
-              <div>
-                <h4 className="project-title">
-                  <a href="https://acp-index.netlify.app/">ACP-Index</a>
-                  <a href="https://github.com/index-alchemy">
-                    <img src={github} alt="github icon"/>
-                  </a>
-                </h4>
-                <p>
-                  ACP-Index was designed to streamline the process of classroom projects. It allows students to rank project ideas in order that they'd prefer to work on them or pitch an entirely new idea. It uses students' rankings to assign teams in the most socially optimal way possible.
-                </p>
-              </div>
-            </li>
-          </label>
-
-          <label>
-            <input type="radio"/>
-            <li>
-              <div>
-                <h4 className="project-title">
-                  bookbook
-                  <a href="https://github.com/openbookbook/">
-                    <img src={github} alt="github icon"/>
-                  </a>
-                </h4>
-                <p>
-                  Democratic decision making for book clubs made easy. It utilizes ranked choice voting to allow members to rank their preferences for their next read. The app is dedicated to a minimalist setup design philosophy (inspired by when2meet) and requires no emails. Just make a "ballot" and an admin code and share the url with your friends!
-                </p>
-              </div>
-              <img src={bookbook} alt="bookbook site"/>
-            </li>
-          </label>
-
-          <label>
-            <input type="radio"/>
-            <li>
-              <img src={curbee} alt="curbee site"/>
-              <div>
-                <h4 className="project-title">
-                  Curbee
-                  <a href="https://github.com/curbee-by-curbees/">
-                    <img src={github} alt="github icon"/>
-                  </a>
-                </h4>
-                <p>
-                  Curbee is a community free stuff alert system. It allows users to post furniture or other "for free" items they find on the curb and utilizes Twilio to send an SMS alert to anyone who has alerts set up for that area.
-                </p>
-              </div>
-            </li>
-          </label>
-
-          <label>
-            <input type="radio"/>
-            <li>
-              <h4 className="project-title">Polylingual RCV</h4>
-              <p>
-                Ranked choice voting, or instant runoff voting, is one of the simplest electoral system that allows voters to rank their preferred candidates in order. A personal project of mine has been to try to write an algorithm for RCV in as many programming languages as I can.
-              </p>
-              <div className="tabs" name="rcv-tabs">
-                <nav>
-                  <label><input type="radio" name="rcv-tabs"/><span>javascript</span></label>
-                  <label><input type="radio" name="rcv-tabs"/><span>typescript</span></label>
-                  <label><input type="radio" name="rcv-tabs"/><span>python</span></label>
-                  <label><input type="radio" name="rcv-tabs"/><span>elm</span></label>
-                </nav>
-                <code>
-                  hello
-                </code>
-              </div>
-            </li>
-          </label>
-
-        </ul>
-      </section>
-    </div>
+    <ProjectsSection/>
 
     <div id="tools">
       <section>
         <h3 className="section-heading"><a href="#tools">Tools</a></h3>
+        <h4>Languages</h4>
+        <ul>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>TypeScript</li>
+          <li>Elm</li>
+        </ul>
+        <h4>Frameworks</h4>
+        <ul>
+          <li>React</li>
+          <li>Express</li>
+        </ul>
+        <h4>APIs</h4>
+        <ul>
+          <li>Algolia</li>
+        </ul>
+        <h4>Tools</h4>
+        <ul>
+          <li>Git</li>
+        </ul>
       </section>
     </div>
 
