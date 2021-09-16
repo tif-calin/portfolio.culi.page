@@ -286,15 +286,10 @@
     clip-path: polygon(0 0, 100% 0, 100% 2px, 0 calc(2rem + 2px));
   }
 
-  h4 { 
-    margin-top: 1.5rem;
-    width: 100%; 
-  }
-
   section {
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 1.5rem;
   }
 }
 
@@ -313,8 +308,6 @@
     a {
       background-repeat: repeat;
       background-image: url('./squiggle.svg');
-      filter: blur(0.045rem);
-      &:hover { filter: blur(0.03rem); }
 
       &::after {
         display: none;

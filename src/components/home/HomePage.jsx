@@ -1,5 +1,4 @@
 import React from 'react';
-import 'prismjs';
 import { Link } from 'react-router-dom';
 import InlineTextRadio from '../InlineTextRadio';
 import '../../style/home.scss';
@@ -90,32 +89,53 @@ const HomePage = () => {
     <div id="tools">
       <section>
         <h3 className="section-heading"><a href="#tools">Tools</a></h3>
-        <h4>Languages</h4>
         <ul>
+          <h4>Languages</h4>
           <li>JavaScript</li>
           <li>Python</li>
           <li>TypeScript</li>
-          <li>Elm</li>
+          <li>CSS</li>
+          <li>HTML</li>
+          <li>SVG</li>
+          <li>SQL</li>
         </ul>
-        <h4>Frameworks</h4>
         <ul>
+          <h4>Frameworks</h4>
+          <li>Node.js</li>
           <li>React</li>
           <li>Express</li>
+          <li>Webpack</li>
+          <li>Yarn</li>
+          <li>Jest</li>
+          <li>Sequalize</li>
         </ul>
-        <h4>APIs</h4>
         <ul>
+          <h4>APIs & Libraries</h4>
           <li>Algolia</li>
+          <li>Twilio</li>
+          <li>Cloudinary</li>
+          <li>Pandas</li>
+          <li>React Testing Library</li>
+          <li>bcrypt</li>
+          <li>CSS in JS</li>
         </ul>
-        <h4>Tools</h4>
         <ul>
-          <li>Git</li>
+          <h4>Tools</h4>
+          <li>GitHub</li>
+          <li>Heroku</li>
+          <li>Postman</li>
+          <li>pgAdmin</li>
+          <li>Netlify</li>
+          <li>VS Code</li>
+          <li>Ubuntu</li>
         </ul>
+        <span>Check out my <Link className="special" to="/uses">uses</Link> page for a more complete list of the tech that I use.</span>
       </section>
     </div>
 
     <div id="contact">
       <section>
-        <h3 className="section-heading"><a href="#contact">Contact</a></h3>
+        <h3 className="section-heading"><a href="mailto:culitif@tuta.io">Contact me!</a></h3>
       </section>
     </div>
   </div>;
