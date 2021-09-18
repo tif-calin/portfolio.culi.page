@@ -1,5 +1,5 @@
 /* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+clike+javascript+c+cpp+elm+rust+typescript */
+https://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+css+clike+javascript+bash+c+cpp+clojure+cobol+docker+elm+erlang+go+graphql+ini+java+latex+lisp+lua+markdown+markup-templating+nginx+php+plsql+python+r+jsx+tsx+regex+ruby+rust+sql+swift+typescript+uri */
 /*
  Solarized Color Schemes originally by Ethan Schoonover
  http://ethanschoonover.com/solarized
@@ -33,7 +33,6 @@ green     #859900
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #657b83; /* base00 */
-	/* font-size: 1em; */
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -72,9 +71,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	/*background-color: #fdf6e3; /* base3 */
-	background: var(--color-bg);
-	background: #f3e9c688;
+	background: var(--color-bg); /* base3 */
 }
 
 /* Inline code */
@@ -151,3 +148,4 @@ pre[class*="language-"] {
 .token.entity {
 	cursor: help;
 }
+

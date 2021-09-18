@@ -152,6 +152,32 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "prismjs",
+        {
+          "languages": [
+            "clojure",
+            "cpp",
+            "elm",
+            "go",
+            "java",
+            "javascript", 
+            "js",
+            "lua",
+            "python",
+            "r",
+            "rust",
+            "swift",
+            "typescript", 
+            "ts"
+          ]
+        }
+      ]
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-prismjs": "^2.1.0"
   }
 }

@@ -6,6 +6,47 @@ import bookbook from '../../assets/bookbook900.png';
 import curbee from '../../assets/curbee450.png';
 import github from '../../assets/github.svg';
 
+const rcvCodeDocstrings = {
+  javascript: ``,
+  python: `
+    """
+    INPUT (a DataFrame that looks like)::
+        RED	GRN	BLU	
+    alex 1   2   3
+    anna 2   3   1
+    emma 1   3   2
+    imam 2   1   3
+    ioan 3   1   2
+    jena 3   2   1
+    jose 1   2   3
+    luis 2   3   1
+    mary 2   3   1
+    mike 2   3   1
+    ming 3   2   1
+    noor 1   2   3
+    olga 3   2   1
+    rosa 2   3   1
+    shay 1   3   2
+    siti 3   2   1
+    ying 1   2   3
+    zack 2   1   3
+      
+    OUTPUT (an array of dicts, representing the outcome of a given round)::
+    [
+      {
+        RED: 6,
+        GRN: 3,
+        BLU: 9
+      },
+      {
+        RED: 8
+        BLU: 10
+      }
+    ]
+    """
+  `,
+}
+
 const rcvCodes = {
   javascript: `
     const rankedChoiceVote = (candidates, votes) => {
@@ -52,17 +93,44 @@ const rcvCodes = {
 
         // keep a record of each round
         results.push(result);
-
-        // in case it goes on for too long:
-        if (results.length > 999) break;
       }
 
       return results;
-    }
+    };
   `.replace(/\n {4}/g, '\n').trim(),
-  typescript: ``,
-  python: ``,
-  elm: ``
+  python: `
+    import pandas as pd
+    import numpy as np
+
+    def ranked_choice(data: pd.DataFrame) -> list:
+      # strip off all the candidates with no first choices 
+      outcome = df.iloc[:, :-3].idxmin(1).value_counts()
+      remaining = outcome.index.tolist()
+      rounds = [outcome]
+      
+      i = 0
+      while True:
+        # get the outcome for the round 
+        outcome = df.iloc[:, :-3][remaining].idxmin(1).value_counts()
+        
+        # save the outcome in the list of rounds 
+        rounds.append([outcome.get(c) for c in candidates])
+        
+        # check for win conditions
+        if (
+          outcome.max() > len(df)/2 or 
+          len(remaining) == len(outcome.nsmallest(1, keep = 'all'))
+        ): break
+        
+        i += 1
+        
+      return rounds
+
+  `.replace(/\n {4}/g, '\n').trim(),
+  swift: `/* swift implmentation coming soon */`,
+  typescript: `/ *typescript implementation coming soon */`,
+  elm: `{- elm implementation coming soon -}`,
+  //rust: `rust implementation coming soon`,
 };
 
 const ProjectsSection = () => {
@@ -146,46 +214,22 @@ const ProjectsSection = () => {
               </p>
               <div className="tabs" name="rcv-tabs">
                 <nav>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="rcv-tabs" 
-                      value="javascript" 
-                      defaultChecked={true}
-                      onClick={handleRCVChange}
-                    />
-                    <span>javascript</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="rcv-tabs" 
-                      value="typescript"
-                      onClick={handleRCVChange}
-                    />
-                    <span>typescript</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="rcv-tabs" 
-                      value="python"
-                      onClick={handleRCVChange}
-                    />
-                    <span>python</span>
-                  </label>
-                  <label>
-                    <input 
-                      type="radio" 
-                      name="rcv-tabs" 
-                      value="elm"
-                      onClick={handleRCVChange}
-                    />
-                    <span>elm</span>
-                  </label>
+                  {
+                    Object.keys(rcvCodes).map(lang => 
+                      <label key={lang}>
+                        <input
+                          type="radio"
+                          name="rcv-tabs"
+                          value={lang}
+                          onClick={handleRCVChange}
+                        />
+                        <span>{lang}</span>
+                      </label>
+                    )
+                  }
                 </nav>
                 <pre>
-                  <code className="language-javascript">{rcvCodes[rcvCode]}</code>
+                  <code className={`language-${rcvCode}`}>{rcvCodes[rcvCode]}</code>
                 </pre>
               </div>
             </li>
