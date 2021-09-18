@@ -15,6 +15,6 @@
   </filter>
 
   <rect width='300' height='300' fill='#fff0'/>
-  <rect width='300' height='300' fill='fff0' filter='url(#n)' opacity='0.3'/>
+  <rect width='300' height='300' fill='fff0' filter='url(#n)' opacity='0.2'/>
   
 </svg>
