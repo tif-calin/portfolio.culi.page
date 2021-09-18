@@ -52,22 +52,29 @@ body {
   }
 
   hr {
-    border: 0.25rem solid var(--color-border);
+    border: 2px solid var(--color-border);
+    border-radius: 100%;
     width: 100%;
   }
 
   header {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    margin-top: 1rem;
-  
-    ul {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      gap: 0.5rem;
+    padding: calc(2 * var(--padding)) var(--padding);
+    position: relative;
+    color: var(--color-text-inverse);
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: var(--color-bg-secondary);
+      border-bottom: 2px solid var(--color-border);
+      width: 200vw;
+      left: -100vw;
+      height: 100%;
+      z-index: -1;
     }
   }
 

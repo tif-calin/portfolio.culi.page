@@ -10,19 +10,13 @@ const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Helloooo', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
 /*
-NOW page: Elm, Deno, Rust, Docker, TypeScript, GIS, rot.js (https://ondras.github.io/rot.js/hp/)
-
-now page
- - status: looking for work
- - projects: (fixing up, making new)
- - reading list: (3 books)
-
-NOW
- - learning: Elm
- - projects: votevote, catfood.fyi
-
-redis!!!
-elasticsearch
+TODO:
+ - NOW page
+ - USES page
+ - add links to projects
+ - add header
+ - make projects clickable to expand
+ - finish writing rcv
 */
 
 const HomePage = () => {
@@ -42,7 +36,7 @@ const HomePage = () => {
     <div>
       <p>Modern HTML, CSS, and JavaScript are powerful and often-overlooked tools. When it comes to efficient, sustainable, and dependable web design, nothing really beats a static site with minimal dependencies.</p>
       <br/>
-      <p>You check out some of the tools I've built for myself using these tools <a className="special" href="https://culi.page/toys/" target="_blank" rel="noreferrer">here!</a></p>
+      <p>Click to checkout some of the <a className="special" href="https://culi.page/toys/" target="_blank" rel="noreferrer">toys</a> I've built for myself using vanilla HTML/CSS/Javascript!</p>
     </div>
   ];
 
@@ -135,7 +129,8 @@ const HomePage = () => {
 
     <div id="contact">
       <section>
-        <h3 className="section-heading"><a href="mailto:culitif@tuta.io">Contact me!</a></h3>
+        <span>Think we can work together?</span>
+        <h3 className="section-heading"><a href="mailto:culitif@tuta.io">Contact</a></h3>
       </section>
     </div>
   </div>;
