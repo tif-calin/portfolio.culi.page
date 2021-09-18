@@ -6,7 +6,7 @@ import bookbook from '../../assets/bookbook900.png';
 import curbee from '../../assets/curbee450.png';
 import github from '../../assets/github.svg';
 
-const rcvCodeDocstrings = {
+const rcvDocstrings = {
   javascript: ``,
   python: `
     """
@@ -103,6 +103,7 @@ const rcvCodes = {
     import numpy as np
 
     def ranked_choice(data: pd.DataFrame) -> list:
+      ${rcvDocstrings.python}
       # strip off all the candidates with no first choices 
       outcome = df.iloc[:, :-3].idxmin(1).value_counts()
       remaining = outcome.index.tolist()
