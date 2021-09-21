@@ -9,42 +9,42 @@ import github from '../../assets/github.svg';
 const rcvDocstrings = {
   javascript: ``,
   python: `
-    """
-    INPUT (a DataFrame that looks like)::
-        RED	GRN	BLU	
-    alex 1   2   3
-    anna 2   3   1
-    emma 1   3   2
-    imam 2   1   3
-    ioan 3   1   2
-    jena 3   2   1
-    jose 1   2   3
-    luis 2   3   1
-    mary 2   3   1
-    mike 2   3   1
-    ming 3   2   1
-    noor 1   2   3
-    olga 3   2   1
-    rosa 2   3   1
-    shay 1   3   2
-    siti 3   2   1
-    ying 1   2   3
-    zack 2   1   3
-      
-    OUTPUT (an array of dicts, representing the outcome of a given round)::
-    [
-      {
-        RED: 6,
-        GRN: 3,
-        BLU: 9
-      },
-      {
-        RED: 8
-        BLU: 10
-      }
-    ]
-    """
-  `,
+      """
+      INPUT (a DataFrame that looks like)::
+          RED	GRN	BLU	
+      alex 1   2   3
+      anna 2   3   1
+      emma 1   3   2
+      imam 2   1   3
+      ioan 3   1   2
+      jena 3   2   1
+      jose 1   2   3
+      luis 2   3   1
+      mary 2   3   1
+      mike 2   3   1
+      ming 3   2   1
+      noor 1   2   3
+      olga 3   2   1
+      rosa 2   3   1
+      shay 1   3   2
+      siti 3   2   1
+      ying 1   2   3
+      zack 2   1   3
+        
+      OUTPUT (an array of dicts, representing the outcome of a given round)::
+      [
+        {
+          RED: 6,
+          GRN: 3,
+          BLU: 9
+        },
+        {
+          RED: 8
+          BLU: 10
+        }
+      ]
+      """
+  `.trim(),
 }
 
 const rcvCodes = {
@@ -104,6 +104,7 @@ const rcvCodes = {
 
     def ranked_choice(data: pd.DataFrame) -> list:
       ${rcvDocstrings.python}
+      
       # strip off all the candidates with no first choices 
       outcome = df.iloc[:, :-3].idxmin(1).value_counts()
       remaining = outcome.index.tolist()
@@ -126,10 +127,9 @@ const rcvCodes = {
         i += 1
         
       return rounds
-
   `.replace(/\n {4}/g, '\n').trim(),
   swift: `/* swift implmentation coming soon */`,
-  typescript: `/ *typescript implementation coming soon */`,
+  typescript: `/* typescript implementation coming soon */`,
   elm: `{- elm implementation coming soon -}`,
   //rust: `rust implementation coming soon`,
 };
@@ -153,7 +153,7 @@ const ProjectsSection = () => {
         <ul>
 
           <label>
-            <input type="radio"/>
+            <input type="checkbox"/>
             <li>
               <img src={acpindexpic} alt="acp index site"/>
               <div>
@@ -171,7 +171,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="radio"/>
+            <input type="checkbox"/>
             <li>
               <div>
                 <h4 className="project-title">
@@ -189,7 +189,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="radio"/>
+            <input type="checkbox"/>
             <li>
               <img src={curbee} alt="curbee site"/>
               <div>
@@ -207,7 +207,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="radio"/>
+            <input type="checkbox"/>
             <li>
               <h4 className="project-title">Polylingual RCV</h4>
               <p>
@@ -223,6 +223,7 @@ const ProjectsSection = () => {
                           name="rcv-tabs"
                           value={lang}
                           onClick={handleRCVChange}
+                          defaultChecked={rcvCode === lang}
                         />
                         <span>{lang}</span>
                       </label>
