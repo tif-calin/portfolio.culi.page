@@ -28,7 +28,7 @@ html {
 body {
   color: var(--color-text);
   background-repeat: repeat;
-  background: url('./noise.svg'), var(--color-bg);
+  background: url('../assets/noise.svg'), var(--color-bg);
   font-family: var(--font);
   font-size: var(--font-size);
   font-weight: 400;
@@ -39,6 +39,7 @@ body {
   align-items: center;
 }
 
+/* define header, footer, and main styling */
 #root {
   display: flex;
   flex-direction: column;
@@ -58,23 +59,47 @@ body {
   }
 
   header {
+    color: var(--color-text-inverse);
+    padding: calc(2 * var(--padding)) var(--padding);
+    font-family: var(--font-headings);
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    padding: calc(2 * var(--padding)) var(--padding);
     position: relative;
-    color: var(--color-text-inverse);
 
     &::before {
       content: '';
       position: absolute;
       background: var(--color-bg-secondary);
       border-bottom: 2px solid var(--color-border);
-      width: 200vw;
+      inset: 0;
+      width: 300vw;
       left: -100vw;
       height: 100%;
       z-index: -1;
+    }
+
+    & > a:first-child {
+      font-weight: 900;
+      font-size: 2rem;
+    }
+
+    nav {
+      font-family: var(--font);
+      display: flex;
+      align-items: flex-end;
+      gap: 0.5rem;
+      font-size: 1rem;
+
+      a { 
+        border-bottom: 2px solid var(--color-border);
+        transition: all 0.2s 
+      }
+
+      a:hover {
+        font-weight: 600;
+      }
     }
   }
 
