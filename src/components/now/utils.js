@@ -40,6 +40,18 @@ const date2text = date => {
   }
 
   return text;
-}
+};
 
-export { date2text };
+const findInNest = (nest, needle) => {
+  let find = null;
+
+  Object.values(nest).forEach(obj => {
+    Object.keys(obj).forEach(key => {
+      if (key === needle) find = obj[key];
+    })
+  });
+
+  return find;
+};
+
+export { date2text, findInNest };
