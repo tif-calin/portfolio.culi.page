@@ -107,7 +107,7 @@
       color: var(--color-text);
       border: 2px solid var(--color-border);
       border-radius: var(--radius);
-      background: url('./noise.svg'), var(--color-bg);
+      background: url('../assets/noise.svg'), var(--color-bg);
       padding: calc(3 * var(--padding));
       box-shadow: inset 0 0 0.3rem 0 var(--color-text);
       display: flex;
@@ -248,7 +248,7 @@
         border-bottom: none;
         background: none;
         transition: all 0.5s;
-        
+
         &:hover { background: var(--color-bg); }
       }
 
@@ -320,7 +320,7 @@
     text-align: center;
 
     a {
-      background-image: url('./squiggle.svg');
+      background-image: url('../assets/squiggle.svg');
 
       &::after {
         display: none;
