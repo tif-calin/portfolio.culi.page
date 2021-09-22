@@ -123,7 +123,7 @@ const HomePage = () => {
           <li>VS Code</li>
           <li>Ubuntu</li>
         </ul>
-        <span>Check out my <Link className="special" to="/uses">uses</Link> page for a more complete list of the tech that I use.</span>
+        {/*<span>Check out my <Link className="special" to="/uses">uses</Link> page for a more complete list of the tech that I use.</span>*/}
       </section>
     </div>
 
