@@ -43,6 +43,7 @@
     "jest-watch-typeahead": "0.6.1",
     "mini-css-extract-plugin": "0.11.3",
     "node-sass": "^6.0.1",
+    "oldie": "^1.3.0",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.2.1",
@@ -163,14 +164,14 @@
             "elm",
             "go",
             "java",
-            "javascript", 
+            "javascript",
             "js",
             "lua",
             "python",
             "r",
             "rust",
             "swift",
-            "typescript", 
+            "typescript",
             "ts"
           ]
         }
