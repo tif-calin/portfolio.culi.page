@@ -6,3 +6,8 @@
  - [simpleicons.org](https://simpleicons.org/)
  - [shapedivider.app](https://www.shapedivider.app/)
  - [fraunces.undercase.xyz](https://fraunces.undercase.xyz/)
+
+## todo
+ - [ ] fix on safari on phones
+ - [ ] add /uses page
+ - [ ] update /now (often)
