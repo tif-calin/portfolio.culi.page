@@ -216,7 +216,7 @@ const ProjectsSection = () => {
               <div className="tabs" name="rcv-tabs">
                 <nav>
                   {
-                    Object.keys(rcvCodes).map(lang => 
+                    Object.keys(rcvCodes).map(lang =>
                       <label key={lang}>
                         <input
                           type="radio"

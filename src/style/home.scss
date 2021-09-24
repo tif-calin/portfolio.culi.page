@@ -12,8 +12,13 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    &:nth-of-type(2n) section { color: var(--color-text); }
-    &:nth-of-type(2n+3) section { color: var(--color-text-inverse); }
+    &:nth-of-type(2n) section { 
+      color: var(--color-text); 
+    }
+    &:nth-of-type(2n+3) section { 
+      color: var(--color-text-inverse); 
+      .section-heading a { text-shadow: 1.25px 1.25px 1.25px var(--color-text), -1.25px -1.25px 1.25px var(--color-text); }
+    }
 
     & > section {
       display: flex;
@@ -56,12 +61,12 @@
     }
 
     span {
-      font-size: 1.5rem;
+      font-size: var(--font-size);
       font-weight: 550;
     }
 
     .highlight {
-      color: var(--color-bg-secondary);
+      color: var(--color-secondary);
       font: inherit;
       font-weight: inherit;
       font-size: inherit;
@@ -70,17 +75,20 @@
 }
 
 #about {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-secondary);
   color: var(--color-text-inverse);
   padding: 5rem 0;
-  box-shadow: 0 0.3rem 0.5rem -0.15rem #3f474f88;
-  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 0.3rem 0.5rem -0.15rem rgba(var(--color-border-rgb), 0.5);
+  border-bottom: var(--border);
+
   .toggle-text::after { 
-    opacity: 0; 
-    transition: all 0.5s;
+    filter: opacity(0);
   }
+
   .InlineTextRadio:checked + * .toggle-text::after,
-  &:hover .toggle-text::after { opacity: 1; }
+  &:hover .toggle-text::after { 
+    filter: opacity(1);
+  }
 
   section {
     display: flex;
@@ -91,9 +99,6 @@
     h3 {
       display: flex;
       flex-basis: 100%;
-      
-      // a { transition: all 0.2s; }
-      // a:hover { text-shadow: 2px 2px 2px var(--color-text), -2px -2px 2px var(--color-text); }
     }
 
     & > div:first-of-type {
@@ -105,11 +110,11 @@
 
     output {
       color: var(--color-text);
-      border: 2px solid var(--color-border);
+      border: var(--border);
       border-radius: var(--radius);
       background: url('../assets/noise.svg'), var(--color-bg);
       padding: calc(3 * var(--padding));
-      box-shadow: inset 0 0 0.3rem 0 var(--color-text);
+      box-shadow: inset 0 0 0.5rem 0 rgba(var(--color-border-rgb), 0.5);
       display: flex;
       min-width: min(300px, 100%);
       width: calc(50% - 2rem);
@@ -152,19 +157,18 @@
         & > img { 
           max-width: 0; 
           max-height: 0;
-          transition: all 0.5s;
+          transition: all var(--transition-length-slow);
           margin: -0.5rem;
-          border: 2px solid;
+          border: var(--border);
           border-color: #0000;
           border-radius: var(--radius);
         }
 
         & > .tabs {
           max-height: 0;
-          opacity: 0;
-          margin: 0;
-          transition: all 0.5s;
-          overflow: hidden;
+          filter: opacity(0);
+          margin-top: 0;
+          transition: all var(--transition-length-slow);
         }
       }
 
@@ -178,7 +182,7 @@
 
         & > .tabs {
           max-height: unset;
-          opacity: 1;
+          filter: opacity(1);
           margin-top: 1rem;
         }
       }
@@ -195,13 +199,13 @@
     border-radius: var(--radius);
     box-shadow: 0 0 0 0 #0000;
     transition-property: border-color, box-shadow;
-    transition-duration: .4s;
+    transition-duration: var(--transition-length-slow);
     position: relative;
     gap: 1rem;
     cursor: pointer;
 
     &:hover {
-      box-shadow: -0.5rem -0.5rem 0 0 var(--color-bg-secondary);
+      box-shadow: -0.5rem -0.5rem 0 0 var(--color-secondary);
       border-color: var(--color-border);
     }
     
@@ -227,7 +231,6 @@
   .tabs {
     margin: 0;
     width: 100%;
-    overflow: hidden;
     max-width: calc(55vw - 3.5rem);
     min-width: 300px;
 
@@ -264,17 +267,23 @@
 
         input:checked + * {
           color: var(--color-text-inverse);
-          background: var(--color-bg-secondary);
+          background: var(--color-secondary);
         }
       }
     }
 
     & > *:last-child {
-      border-top: 2px solid var(--color-border);
+      border-top: var(--border);
       display: flex;
       margin: 0;
       border-radius: 0 0 var(--radius) var(--radius);
-      box-shadow: 0 0 2rem 0 #3f474f11;
+      box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.05);
+      clip-path: polygon(-2rem 0, calc(100% + 2rem) 0, calc(100% + 2rem) calc(100% + 2rem), -2rem calc(100% + 2rem));
+      transition: box-shadow var(--transition-length-slow);
+
+      &:hover {
+        box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.125);
+      }
 
       code {
         overflow-x: auto;
@@ -285,7 +294,7 @@
 
 #tools {
   position: relative;
-  background: var(--color-bg-secondary);
+  background: var(--color-secondary);
   padding: 5rem 0;
   clip-path: polygon(0 2rem, 100% 0, 100% 120%, 0 120%);
   border-bottom: 2px solid var(--color-border);
@@ -359,7 +368,7 @@
   &:hover + div .toggle-text::after { opacity: 1; }
 
   .shape-fill {
-    fill: var(--color-bg-secondary);
+    fill: var(--color-secondary);
   }
 
   svg {

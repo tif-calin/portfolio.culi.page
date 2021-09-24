@@ -13,7 +13,7 @@
 
     & > span {
       font-weight: 500;
-      color: var(--color-bg-secondary);
+      color: var(--color-secondary);
     }
   }
 }
@@ -32,7 +32,7 @@ input.section-toggle {
   }
 
   &:checked + section {
-    box-shadow: -0.5rem -0.5rem 0 0 var(--color-bg-secondary);
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-secondary);
     border-color: var(--color-border);
 
     .info {
@@ -85,7 +85,7 @@ input.section-toggle {
       background-color: var(--color-bg);
 
       &::-moz-progress-bar {
-        background-color: var(--color-bg-secondary);
+        background-color: var(--color-secondary);
         border-radius: var(--radius);
       }
     }
@@ -117,7 +117,7 @@ input.section-toggle {
 
       input:checked + span,
       span:hover {
-        background-color: var(--color-bg-secondary);
+        background-color: var(--color-secondary);
         color: var(--color-text-inverse);
       }
     }

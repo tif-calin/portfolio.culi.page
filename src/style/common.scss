@@ -125,15 +125,18 @@ a.special {
 }
 
 .hover-block {
-  border-radius: var(--radius);
   position: relative;
+
+  border: var(--border);
+  border-radius: var(--radius);
+  border-color: #0000;
   box-shadow: 0 0 0 0 #0000;
-  border: 2px solid #0000;
+
   transition-property: border-color, box-shadow;
   transition-duration: .4s;
 
   &:hover {
-    box-shadow: -0.5rem -0.5rem 0 0 var(--color-bg-secondary);
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-secondary);
     border-color: var(--color-border);
   }
 }
@@ -157,39 +160,40 @@ common components
     margin: 0 0.15rem;
 
     &::after {
-      border-radius: var(--radius);
       content: '';
       position: absolute;
-      inset: 0.5rem;
-      top: calc(100% + 1px);
-      bottom: -4px;
-      border-color: var(--color-border);
-      border-top: 3px solid var(--color-border);
+
+      border-radius: var(--radius);
       background: var(--color-border);
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
+      border-color: var(--color-border);
+
+      inset: 0.5rem;
+      top: 100%;
+      bottom: -0.25rem;
+
+      transition: all var(--transition-length);
     }
   }
 
   // selected or hovered
   & + label > span:hover::after,
   &:checked + label > span::after {
-    border: 3px solid var(--color-border);
-    inset: -4px;
-    top: 0;
-    opacity: 1;
+    border: var(--border);
+    border-width: 0.25rem;
+    background: var(--color-border);
+    
+    inset: -0.25rem;
+    top: -0.125rem;
     mix-blend-mode: difference;
   }
 
   // selected
   &:checked + label > span::after {
-    border-radius: var(--radius);
     background: none;
   }
 
   // hovered
   & + label > span:hover::after {
-    //background: linear-gradient(120deg, var(--color-bg-tertiary), var(--color-bg-quaternary));
     background: var(--color-border);
   }
 }
