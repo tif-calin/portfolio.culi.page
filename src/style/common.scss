@@ -1,4 +1,8 @@
-/* keyframe animations */
+/* ======
+keyframes
+====== */ 
+/* #region */
+
 @keyframes small-spin {
   0% {
     transform: rotate(0deg);
@@ -19,8 +23,13 @@
     transform:translateX(0);
   }
 }
+/* #endregion */
 
-/* default styling for elements */
+/* =========================
+default styling for elements
+========================= */
+/* #region */
+
 code, pre {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   font-size: 1rem;
@@ -70,9 +79,14 @@ a {
   text-decoration: none;
   font-weight: 500;
 }
+/* #endregion */
 
-/* special stylings */
-.special {
+/* ============
+styling classes 
+============ */
+/* #region */
+
+a.special {
   color: inherit;
   text-decoration: none;
   position: relative;
@@ -123,3 +137,60 @@ a {
     border-color: var(--color-border);
   }
 }
+/* #endregion */
+
+/* ==============
+common components
+============== */
+/* #region */
+
+.InlineTextRadio {
+  display: none;
+
+  & + label > span {
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: 0 0.15rem;
+
+    &::after {
+      border-radius: var(--radius);
+      content: '';
+      position: absolute;
+      inset: 0.5rem;
+      top: calc(100% + 1px);
+      bottom: -4px;
+      border-color: var(--color-border);
+      border-top: 3px solid var(--color-border);
+      background: var(--color-border);
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  // selected or hovered
+  & + label > span:hover::after,
+  &:checked + label > span::after {
+    border: 3px solid var(--color-border);
+    inset: -4px;
+    top: 0;
+    opacity: 1;
+    mix-blend-mode: difference;
+  }
+
+  // selected
+  &:checked + label > span::after {
+    border-radius: var(--radius);
+    background: none;
+  }
+
+  // hovered
+  & + label > span:hover::after {
+    //background: linear-gradient(120deg, var(--color-bg-tertiary), var(--color-bg-quaternary));
+    background: var(--color-border);
+  }
+}
+/* #endregion */
