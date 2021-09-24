@@ -5,11 +5,6 @@ import NowSection from './NowSection.jsx';
 
 const LAST_UPDATED = new Date('2021-09-18T18:48Z');
 
-// const moreInfo = {
-//   swift: 'Working on an Apple Watch app with some friends',
-//   'rot.js': <a href="https://ondras.github.io/rot.js/hp/">🌐</a>
-// };
-
 const NowPage = () => {
   return <>
 
@@ -79,24 +74,24 @@ const NowPage = () => {
         start="All About Love"
       />
 
-      <NowSection
+      {/* <NowSection
         title="Backburner"
         lists={{
           langs: {
-            /* PHP: <p></p>, */
+            /* PHP: <p></p>, 
             Clojure: <p>I've been itching to try out a Lisp dialect for a while and Clojure has been a consistently most-loved programming language on StackOverflow's yearly survey (second only to Rust!).</p>
           },
           tools: {
             GIS: <p>So many project ideas I've had that I've had to deprioritize because of having to pick up GIS. This is probably the thing I most wanna pick up our of the things on my backburner.</p>,
             'rot.js': <p>This is a minimalist javascript library meant for ASCII roguelike games. I wanted to pick it up to work on a project with a friend, but haven't really found the time for it.</p>,
-            /* Elasticsearch: ``, */
+            /* Elasticsearch: ``, 
             Godot: <p>I tried picking this up a long time ago. It seems to me to be the most promising open-source alternative to Unity. I had several ideas I wanted to work on, but last time I tried picking it up I found the tutorials in the docs to be really lacking and I haven't really tried again in a couple years.</p>,
-            /* GraphQL: ``, */
+            /* GraphQL: ``, 
             Deno: <p>I do think Deno is really promising and want to work on some projects with it at some point in the future.</p>
           }
         }}
         start="GIS"
-      />
+      /> */}
 
       <p className="last-updated">
         Status: <span>open to work</span>
