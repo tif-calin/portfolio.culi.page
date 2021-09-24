@@ -17,7 +17,6 @@
     }
     &:nth-of-type(2n+3) section { 
       color: var(--color-text-inverse); 
-      .section-heading a { text-shadow: 1.25px 1.25px 1.25px var(--color-text), -1.25px -1.25px 1.25px var(--color-text); }
     }
 
     & > section {
@@ -156,7 +155,7 @@
       & + li {
         & > img { 
           max-width: 0; 
-          max-height: 0;
+          max-height: 100px;
           transition: all var(--transition-length-slow);
           margin: -0.5rem;
           border: var(--border);
@@ -168,7 +167,10 @@
           max-height: 0;
           filter: opacity(0);
           margin-top: 0;
-          transition: all var(--transition-length-slow);
+          transform-origin: top;
+          transform: scaleY(0);
+          transition-duration: var(--transition-length);
+          transition-property: margin-top, transform;
         }
       }
 
@@ -184,6 +186,7 @@
           max-height: unset;
           filter: opacity(1);
           margin-top: 1rem;
+          transform: scaleY(1);
         }
       }
     }
@@ -282,7 +285,7 @@
       transition: box-shadow var(--transition-length-slow);
 
       &:hover {
-        box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.125);
+        box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.125), inset 0 0 2rem rgba(var(--color-border-rgb), 0.125);
       }
 
       code {
@@ -299,6 +302,7 @@
   clip-path: polygon(0 2rem, 100% 0, 100% 120%, 0 120%);
   border-bottom: 2px solid var(--color-border);
   box-shadow: 0 0 0.5rem 0 var(--color-text);
+  // text-shadow: 1px 1px var(--color-text), -1px -1px var(--color-text), 1px -1px var(--color-text), -1px 1px var(--color-text);
 
   &::before {
     content: '';

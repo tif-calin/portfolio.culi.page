@@ -60,7 +60,7 @@ const HomePage = () => {
 
     <div id="about">
       <section>
-        <h3 className="section-heading"><a href="#about">About</a></h3>
+        <h2 className="section-heading"><a href="#about">About</a></h2>
         
         <div>
           <form onChange={e => setOutput(e.target.value)}>
@@ -82,7 +82,7 @@ const HomePage = () => {
 
     <div id="tools">
       <section>
-        <h3 className="section-heading"><a href="#tools">Tools</a></h3>
+        <h2 className="section-heading"><a href="#tools">Tools</a></h2>
         <ul>
           <h4>Languages</h4>
           <li>JavaScript</li>
@@ -130,7 +130,7 @@ const HomePage = () => {
     <div id="contact">
       <section>
         <span>Think we can work together?</span>
-        <h3 className="section-heading"><a href="mailto:culitif@tuta.io">Contact</a></h3>
+        <h2 className="section-heading"><a href="mailto:culitif@tuta.io">Contact</a></h2>
       </section>
     </div>
   </div>;
