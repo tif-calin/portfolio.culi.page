@@ -13,7 +13,7 @@ const Header = () => {
       <nav>
         <Link to="/">home</Link>
         {page !== '/now' && <Link to="/now">now</Link>}
-        {page !== '/uses' && <Link to="/uses">uses</Link>}
+        {/* page !== '/uses' && <Link to="/uses">uses</Link> */}
       </nav>
     </header>}
   </>;
