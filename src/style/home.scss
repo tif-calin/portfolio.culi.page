@@ -225,51 +225,57 @@
   .tabs {
     margin: 0;
     width: 100%;
+    overflow: hidden;
+    max-width: calc(55vw - 3.5rem);
+    min-width: 300px;
 
     nav {
-      border-bottom: 2px solid var(--color-border);
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
-      line-height: 1;
+      overflow-x: auto;
+      visibility: hidden;
+      transform: rotateX(180deg);
+      &:hover { visibility: visible; }
+      & > * { 
+        transform: rotateX(180deg); 
+        visibility: visible;
+      }
 
       label {
         margin: 0 0.5rem;
-        margin-top: 0.5rem;
         cursor: pointer;
-      }
       
-      span {
-        border: 2px solid var(--color-border);
-        border-radius: var(--radius) var(--radius) 0 0;
-        display: flex;
-        font-weight: 425;
-        padding: 0.5rem;
-        border-bottom: none;
-        background: none;
-        transition: all 0.5s;
+        span {
+          border: 2px solid var(--color-border);
+          border-radius: var(--radius) var(--radius) 0 0;
+          display: flex;
+          font-weight: 425;
+          padding: 0.15rem 0.5rem;
+          border-bottom: none;
+          background: none;
+          transition: all 0.5s;
+  
+          &:hover { 
+            background: var(--color-bg);
+          }
+        }
 
-        &:hover { background: var(--color-bg); }
-      }
-
-      input:checked + * {
-        color: var(--color-text-inverse);
-        background: var(--color-bg-secondary);
+        input:checked + * {
+          color: var(--color-text-inverse);
+          background: var(--color-bg-secondary);
+        }
       }
     }
 
     & > *:last-child {
+      border-top: 2px solid var(--color-border);
       display: flex;
-      width: 100%;
       margin: 0;
-      padding: 0.5rem;
       border-radius: 0 0 var(--radius) var(--radius);
       box-shadow: 0 0 2rem 0 #3f474f11;
 
       code {
-        overflow: hidden;
-        max-width: calc(55vw - 3.5rem);
-        min-width: 300px;
+        overflow-x: auto;
       }
     }
   }
