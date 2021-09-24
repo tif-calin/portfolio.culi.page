@@ -7,51 +7,86 @@
   gap: 1rem;
   border-bottom: 2px solid var(--color-border);
 
-  & > section {
-    padding: var(--padding);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  .last-updated {
+    font-size: 1rem;
+    margin-top: 5rem;
 
-    h2 {
-      font-size: calc(1.25 * var(--font-size));
-      width: 100%;
+    & > span {
+      font-weight: 500;
+      color: var(--color-bg-secondary);
     }
+  }
+}
 
-    .lists {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      flex-grow: 1;
-      flex-basis: 66%;
-    }
+input.section-toggle {
+  display: none;
+
+  & + section {
+    cursor: pointer;
 
     .info {
-      min-width: 100%;
-      border-radius: var(--radius);
+      max-height: 0;
+      padding: 0;
+      transition: max-height 0.2s;
+    }
+  }
+
+  &:checked + section {
+    box-shadow: -0.5rem -0.5rem 0 0 var(--color-bg-secondary);
+    border-color: var(--color-border);
+
+    .info {
+      max-height: 6rem;
       padding: var(--padding);
-      font-size: 0.9em;
-      background-color: var(--color-border);
-      color: var(--color-text-inverse);
+    }
+  }
+}
 
-      * > p {
-        display: flex;
-        align-items: center;
-      }
+.NowSection {padding: var(--padding);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 
-      progress {
-        margin-left: 1rem;
-        height: 0.5rem;
+  h2 {
+    font-size: calc(1.25 * var(--font-size));
+    width: 100%;
+  }
 
-        appearance: none;
-        border: none;
+  .lists {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+    flex-basis: 66%;
+  }
+
+  .info {
+    min-width: 100%;
+    border-radius: var(--radius);
+    padding: var(--padding);
+    font-size: 0.9em;
+    background-color: var(--color-border);
+    color: var(--color-text-inverse);
+    max-height: 6rem;
+    overflow-y: auto;
+
+    * > p {
+      display: flex;
+      align-items: center;
+    }
+
+    progress {
+      margin-left: 1rem;
+      height: 0.5rem;
+
+      appearance: none;
+      border: none;
+      border-radius: var(--radius);
+      background-color: var(--color-bg);
+
+      &::-moz-progress-bar {
+        background-color: var(--color-bg-secondary);
         border-radius: var(--radius);
-        background-color: var(--color-bg);
-
-        &::-moz-progress-bar {
-          background-color: var(--color-bg-secondary);
-          border-radius: var(--radius);
-        }
       }
     }
   }
@@ -85,16 +120,6 @@
         background-color: var(--color-bg-secondary);
         color: var(--color-text-inverse);
       }
-    };
-  }
-}
-
-.last-updated {
-  font-size: 1rem;
-  margin-top: 5rem;
-
-  & > span {
-    font-weight: 500;
-    color: var(--color-bg-secondary);
+    }
   }
 }

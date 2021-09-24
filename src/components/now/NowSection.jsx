@@ -5,8 +5,18 @@ const NowSection = ({ title, lists, start }) => {
 
   const [info, setInfo] = useState(findInNest(lists, start));
 
-  return <>
-    <section className="NowSection hover-block">
+  return <label>
+    <input 
+      type="radio" 
+      className="section-toggle" 
+      name="section-toggle"
+      defaultChecked={"Projects" === title}
+    />
+
+    <section 
+      className="NowSection hover-block" 
+      name="title"
+    >
       <h2>{title}</h2>
 
       <div className="info">{info}</div>
@@ -29,7 +39,7 @@ const NowSection = ({ title, lists, start }) => {
         </ul>)}
       </div>
     </section>
-  </>;
+  </label>;
 };
 
 export default NowSection;
