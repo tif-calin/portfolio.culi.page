@@ -153,7 +153,7 @@ const ProjectsSection = () => {
         <ul>
 
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" defaultChecked={true}/>
             <li>
               <img src={acpindexpic} alt="acp index site"/>
               <div>
@@ -171,7 +171,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" defaultChecked={true}/>
             <li>
               <div>
                 <h4 className="project-title">
@@ -189,7 +189,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" defaultChecked={true}/>
             <li>
               <img src={curbee} alt="curbee site"/>
               <div>
@@ -207,7 +207,7 @@ const ProjectsSection = () => {
           </label>
 
           <label>
-            <input type="checkbox"/>
+            <input type="checkbox" defaultChecked={true}/>
             <li>
               <h4 className="project-title">Polylingual RCV</h4>
               <p>
