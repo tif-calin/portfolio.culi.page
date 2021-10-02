@@ -11,7 +11,7 @@ const NowSection = ({ title, lists, start }) => {
       className="section-toggle" 
       name="section-toggle"
       defaultChecked={"Projects" === title}
-    />
+    /> 
 
     <section 
       className="NowSection hover-block" 

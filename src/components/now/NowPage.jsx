@@ -3,15 +3,33 @@ import { date2text } from './utils.js';
 import '../../style/now.scss';
 import NowSection from './NowSection.jsx';
 
-const LAST_UPDATED = new Date('2021-09-18T18:48Z');
+// const LAST_UPDATED = new Date('2021-09-18T18:48Z');
+const LAST_UPDATED = new Date('2021-10-01T17:43Z');
 
 const NowPage = () => {
   return <>
 
     <div className="NowPage">
-      <span>
+      <h1>
         Welcome to my <a href="https://nownownow.com/" target="_blank" rel="noreferrer">now</a> page!
-      </span>
+      </h1>
+
+      <section className="changelog-page">
+        <h2>Changelog</h2>
+        <details>
+          <summary>2021, Oct 01</summary>
+          <ul>
+            <span>learning_tools_next.js</span>
+            <span>projects_new_catfood.fyi</span>
+            <span>projects_existing_acp-index</span>
+            <span>projects_existing_bookbook</span>
+          </ul>
+        </details>
+        <details>
+          <summary>2021, Sep 18</summary>
+          <p>created initial now page</p>
+        </details>
+      </section>
 
       <NowSection 
         title="Learning" 
@@ -23,23 +41,31 @@ const NowPage = () => {
             Typescript: <p>I've been practicing Typescript for a couple of months. I have a really solid understanding of Javascript and have experience with statically typed languages (Java and C++) so the basics were really easy to pick up.</p>
           },
           tools: {
+            'Next.js': <p>The Next.js docs have a great tutorial on their site for building a blog with Next. I'm working through that right now and I'm really impressed by Next so far.</p>,
             Docker: <p>While in college, I wrote a Discord bot in Python to message our discord whenever the our student senate website was updated with a new bill. At some point I was trying to give the program to a friend who could run it 24/7 and he casually told me to "just put it in a Docker container." To this day, I'm still working on porting old Python projects into Docker containers. Right now I want to take some Python code I wrote to scrape website for catfood data for a project I'm working on (see: catfood.fyi below).</p>, 
-            Redis: <p>I've recently realized Redis is not just a way to supplement your database but can actually BE your database. So I've been digging into it more deeply to see how I could implement it in some of my side projects.</p>
+            // Redis: <p>I've recently realized Redis is not just a way to supplement your database but can actually BE your database. So I've been digging into it more deeply to see how I could implement it in some of my side projects.</p>
           }
         }}
-        start="Swift"
+        start="Elm"
       />
 
       <NowSection
         title="Projects"
         lists={{
-          /* existing: {
-            bookbook: ``,
-            votevote: ``
-          }, */
+          existing: {
+            'acp-index': <p>
+              Today, we finally merged some features I worked on a couple of weeks ago that ditches our auth system to utilize GitHub's OAuth API. In addition, I've been meeting up biweekly with some past team members to add new features and polish the UX.
+            </p>,
+            bookbook: <p>
+              One of my favorite projects I've worked on was an app, called <a href="https://bookbookbook.club/">bookbook</a>, which helps book clubs democratically vote on which book to read next using ranked choice voting. I've been working on updating the old code to utilize modern React features and be more responsive on mobile.
+            </p>,
+            // votevote: ``
+          },
           new: {
-            'mood ring apple watch app': <p>A friend of mine wanted to work on an Apple Watch app. I'm fascinated by the different design philosophies that have to be adapted to make a good app on such a medium. The end goal is some sort of "mood ring" app that takes into account biometric data! Right now I'm mostly just practicing my Swift.</p>,
-            'catfood.fyi': <p>I wrote a couple of Python scrapers before to scrape catfood data from various sites. This was mostly for my own personal benefit at first (I have two lovely cats). I wanted to collect macronutrient, price, and ingredient data and then analyze to find the best quality and lowest costing (did you know catfood had the highest increase in shoplifting rates of any grocery store product during the pandemic??) catfoods available. I think this data and these tools could really come in handy to other cat parents and want to build out a website that allows people to access them. For now I'm trying to consolidate my various bits of relevant Python code to put into a public repo.</p>
+            // 'mood ring apple watch app': <p>A friend of mine wanted to work on an Apple Watch app. I'm fascinated by the different design philosophies that have to be adapted to make a good app on such a medium. The end goal is some sort of "mood ring" app that takes into account biometric data! Right now I'm mostly just practicing my Swift.</p>,
+            'catfood.fyi': <><p>I wrote a couple of Python scrapers before to scrape catfood data from various sites. This was mostly for my own personal benefit at first (I have two lovely cats). I wanted to collect macronutrient, price, and ingredient data and then analyze to find the best quality and lowest costing (did you know catfood had the highest increase in shoplifting rates of any grocery store product during the pandemic??) catfoods available. I think this data and these tools could really come in handy to other cat parents and want to build out a website that allows people to access them. For now I'm trying to consolidate my various bits of relevant Python code to put into a public repo.</p>
+            <p>I made a page outlining some of my goals for this project <a href="https://culi.page/cats">here</a>!</p>
+            </>
           },
           idea: {
             'all the colorspaces': <p>You might have heard of RGB, HSL, HSV, and CMYK, but have you ever played around with <a href="https://sensing.konicaminolta.us/us/blog/understanding-the-cie-lch-color-space/" target="_blank" rel="noreferrer">LCh</a>, HSLuv, NCS, or <a href="https://bottosson.github.io/posts/colorpicker/" target="_blank" rel="noreferrer">Okhsv</a>? There's a whole world of color spaces out there and I want to collect them all in one site that allows you to compare and contrast each of them.</p>,
