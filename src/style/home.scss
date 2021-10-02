@@ -239,6 +239,7 @@
 
     nav {
       display: flex;
+      gap: calc(1em + 0.25rem);
       flex-direction: row;
       overflow-x: auto;
       visibility: hidden;
@@ -252,16 +253,26 @@
       label {
         margin: 0 0.5rem;
         cursor: pointer;
+
+        img {
+          max-height: 1em;
+          max-width: 1em;
+          display: inline;
+          transition: all var(--transition-length-slow);
+        }
       
-        span {
-          border: 2px solid var(--color-border);
+        & > span {
+          border: var(--border);
+          border-bottom: none;
           border-radius: var(--radius) var(--radius) 0 0;
-          display: flex;
           font-weight: 425;
           padding: 0.15rem 0.5rem;
-          border-bottom: none;
+          width: calc(100% + 1em);
           background: none;
-          transition: all 0.5s;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          transition: all var(--transition-length-slow);
   
           &:hover { 
             background: var(--color-bg);
@@ -271,6 +282,10 @@
         input:checked + * {
           color: var(--color-text-inverse);
           background: var(--color-secondary);
+
+          img {
+            filter: invert(1);
+          }
         }
       }
     }
@@ -282,11 +297,11 @@
       border-radius: 0 0 var(--radius) var(--radius);
       box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.05);
       clip-path: polygon(-2rem 0, calc(100% + 2rem) 0, calc(100% + 2rem) calc(100% + 2rem), -2rem calc(100% + 2rem));
-      transition: box-shadow var(--transition-length-slow);
+      // transition: box-shadow var(--transition-length-slow);
 
-      &:hover {
-        box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.125), inset 0 0 2rem rgba(var(--color-border-rgb), 0.125);
-      }
+      // &:hover {
+      //   box-shadow: 0 0 2rem rgba(var(--color-border-rgb), 0.125), inset 0 0 2rem rgba(var(--color-border-rgb), 0.125);
+      // }
 
       code {
         overflow-x: auto;

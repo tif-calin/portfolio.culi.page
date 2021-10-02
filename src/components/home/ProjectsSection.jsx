@@ -5,6 +5,12 @@ import acpindexpic from '../../assets/acpindex450.png';
 import bookbook from '../../assets/bookbook900.png';
 import curbee from '../../assets/curbee450.png';
 import github from '../../assets/github.svg';
+import svg_elm from '../../assets/elm.svg';
+import svg_javascript from '../../assets/javascript.svg';
+import svg_python from '../../assets/python.svg';
+// import svg_rust from '../../assets/rust.svg';
+import svg_swift from '../../assets/swift.svg';
+import svg_typescript from '../../assets/typescript.svg';
 
 const rcvDocstrings = {
   javascript: ``,
@@ -134,6 +140,15 @@ const rcvCodes = {
   //rust: `rust implementation coming soon`,
 };
 
+const langIcons = {
+  javascript: svg_javascript,
+  python: svg_python,
+  // rust: svg_rust,
+  swift: svg_swift,
+  typescript: svg_typescript,
+  elm: svg_elm
+}
+
 const ProjectsSection = () => {
   const [rcvCode, setRcvCode] = React.useState('javascript');
 
@@ -225,7 +240,10 @@ const ProjectsSection = () => {
                           onClick={handleRCVChange}
                           defaultChecked={rcvCode === lang}
                         />
-                        <span>{lang}</span>
+                        <span>
+                          <img src={langIcons[lang]} alt={lang + ' icon'}/>
+                          <span>{lang}</span>
+                        </span>
                       </label>
                     )
                   }
