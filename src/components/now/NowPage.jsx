@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { date2text } from './utils.js';
 import '../../style/now.scss';
 import NowSection from './NowSection.jsx';
 
 // const LAST_UPDATED = new Date('2021-09-18T18:48Z');
-const LAST_UPDATED = new Date('2021-10-01T17:43Z');
-
-const NowPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const LAST_UPDATED = new Date('2021-10-11T18:55Z');
 
   return <>
 
@@ -23,8 +18,8 @@ const NowPage = () => {
         <details>
           <summary>2021, Oct 11</summary>
           <ul>
-            <li>learning_tools_next.js</li>
-            <li>projects_new_sort-filter-query</li>
+            <span>learning_tools_next.js</span>
+            <span>projects_new_sort-filter-query</span>
           </ul>
         </details>
         <details>

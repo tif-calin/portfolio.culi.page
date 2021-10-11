@@ -35,7 +35,7 @@ const date2text = date => {
   else if (ago < 172800) text = `${Math.round(ago / 3600)} hours ago`;
   else if (ago < 604800) text = `last ${DAYS[date.getDay() - 1]}`;
   else {
-    text = `${MONTHS[date.getMonth() - 1]} ${date.getDate()}`;
+    text = `${MONTHS[date.getMonth()]} ${date.getDate()}`;
     if (date.getFullYear() !== now.getFullYear()) text += `${date.getFullYear()} ${text}`;
   }
 
