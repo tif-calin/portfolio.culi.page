@@ -6,6 +6,8 @@ import NowSection from './NowSection.jsx';
 // const LAST_UPDATED = new Date('2021-09-18T18:48Z');
 const LAST_UPDATED = new Date('2021-10-11T18:55Z');
 
+const NowPage = () => {
+
   return <>
 
     <div className="NowPage">
