@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { date2text } from './utils.js';
 import '../../style/now.scss';
 import NowSection from './NowSection.jsx';
@@ -7,6 +7,10 @@ import NowSection from './NowSection.jsx';
 const LAST_UPDATED = new Date('2021-10-01T17:43Z');
 
 const NowPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return <>
 
     <div className="NowPage">
