@@ -20,3 +20,5 @@
  - [ ] make fancy header that follows you once you scroll below splash section
  - [x] add page changelog to now page
  - [ ] add changelogs for each project for now page
+ - [ ] update styling colors of prism text
+ - [ ] finish writing rcv code
