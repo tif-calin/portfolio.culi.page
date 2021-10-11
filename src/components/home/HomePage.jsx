@@ -9,16 +9,6 @@ import ProjectsSection from './ProjectsSection';
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
-/*
-TODO:
- - NOW page
- - USES page
- - add links to projects
- - add header
- - make projects clickable to expand
- - finish writing rcv
-*/
-
 const HomePage = () => {
 
   const [output, setOutput] = React.useState(0);
