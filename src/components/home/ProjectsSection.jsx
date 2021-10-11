@@ -51,10 +51,12 @@ const rcvDocstrings = {
     ]
     """
   `.replace(/\n {2}/g, '\n    ').trim(),
-}
+};
 
 const rcvCodes = {
   javascript: `
+    "use strict";
+
     const rankedChoiceVote = (candidates, votes) => {
       // to keep track of every round
       const results = [];
@@ -65,24 +67,25 @@ const rcvCodes = {
         // create the result object
         // initialize values of all undropped candidates to 0
         const result = {};
-        candidates.forEach(suggestion => {
-          if (!dropped.includes(suggestion)) result[suggestion] = 0;
+        candidates.forEach(candidate => {
+          if (!dropped.includes(candidate)) result[candidate] = 0;
         });
 
         // loop through each vote 
         // find the first candidate that wasn't dropped
         votes.forEach(vote => {
           for (const candidate of vote) {
-            if (Object.keys(result).includes(suggestion)) {
-              result[suggestion]++;
+            if (Object.keys(result).includes(candidate)) {
+              result[candidate]++;
               break;
             }
           }
         });
 
         // drop the lowest scoring candiadate(s) by adding them to the dropped array
+        const lowestScore = Math.min(...Object.values(result));
         Object.keys(result).forEach(key => {
-          if (result[key] === Math.min(...Object.values(result))) dropped.push(key);
+          if (result[key] === lowestScore) dropped.push(key);
         });
 
         // check the isOver conditions: 
@@ -109,7 +112,7 @@ const rcvCodes = {
     import numpy as np
 
     def ranked_choice(data: pd.DataFrame) -> list:
-      ${rcvDocstrings.python}
+      ${false && rcvDocstrings.python}
       
       # strip off all the candidates with no first choices 
       outcome = df.iloc[:, :-3].idxmin(1).value_counts()
@@ -135,7 +138,63 @@ const rcvCodes = {
       return rounds
   `.replace(/\n {4}/g, '\n').trim(),
   swift: `/* swift implmentation coming soon */`,
-  typescript: `/* typescript implementation coming soon */`,
+  typescript: `
+    "use strict";
+
+    interface roundResult {
+      [key: string]: number
+    };
+    
+    const rankedChoiceVote = (candidates: string[], votes: string[][]): roundResult[] => {
+      // to keep track of every round
+      const results: roundResult[] = [];
+  
+      const dropped: string[] = [];
+      let isOver = false;
+      while (!isOver) {
+        // create the result object
+        // initialize values of all undropped candidates to 0
+        const result: roundResult = {};
+        candidates.forEach(candidate => {
+          if (!dropped.includes(candidate)) result[candidate] = 0;
+        });
+
+        // loop through each vote 
+        // find the first candidate that wasn't dropped
+        votes.forEach(vote => {
+          for (const candidate of vote) {
+            if (Object.keys(result).includes(candidate)) {
+              result[candidate]++;
+              break;
+            }
+          }
+        });
+
+        // drop the lowest scoring candiadate(s) by adding them to the dropped array
+        const lowestScore = Math.min(...Object.values(result));
+        Object.keys(result).forEach(candidate => {
+          if (result[candidate] === lowestScore) dropped.push(candidate);
+        });
+
+        // check the isOver conditions: 
+        //   (1) everyone remaining is tied, 
+        //   (2) someone has more than 50% of the (remaining) votes, 
+        if (Object.values(result).every(
+          val => val === Object.values(result)[0]
+        )) isOver = true;
+        else {
+          const topScore = Math.max(...Object.values(result));
+          const totScore = Object.values(result).reduce((acc, val) => acc + val, 0);
+          if (topScore > (totScore / 2)) isOver = true;
+        }
+
+        // keep a record of each round
+        results.push(result);
+      }
+  
+      return results;
+    };
+  `.replace(/\n {4}/g, '\n').trim(),
   elm: `{- elm implementation coming soon -}`,
   //rust: `rust implementation coming soon`,
 };
