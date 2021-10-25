@@ -237,7 +237,7 @@ const ProjectsSection = () => {
                   <a href="https://github.com/index-alchemy" target="_blank" rel="noreferrer">
                     <img src={github} alt="github icon"/>
                   </a>
-                  <a href="https://acp-index.netflify.app/" target="_blank" rel="noreferrer">
+                  <a href="https://acp-index.netlify.app/" target="_blank" rel="noreferrer">
                     <img src={external} alt="external link icon"/>
                   </a>
                 </h4>
