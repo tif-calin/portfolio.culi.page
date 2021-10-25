@@ -2,9 +2,10 @@ import React from 'react';
 import Prism from 'prismjs';
 
 import acpindexpic from '../../assets/acpindex450.png';
-import bookbook from '../../assets/bookbook900.png';
+import bookbook from '../../assets/bookbook450.png';
 import curbee from '../../assets/curbee450.png';
 import github from '../../assets/github.svg';
+import external from '../../assets/external.svg';
 import svg_elm from '../../assets/elm.svg';
 import svg_javascript from '../../assets/javascript.svg';
 import svg_python from '../../assets/python.svg';
@@ -232,9 +233,12 @@ const ProjectsSection = () => {
               <img src={acpindexpic} alt="acp index site"/>
               <div>
                 <h4 className="project-title">
-                  <a href="https://acp-index.netlify.app/">ACP-Index</a>
-                  <a href="https://github.com/index-alchemy">
+                  <a href="https://acp-index.netlify.app/" target="_blank" rel="noreferrer">ACP-Index</a>
+                  <a href="https://github.com/index-alchemy" target="_blank" rel="noreferrer">
                     <img src={github} alt="github icon"/>
+                  </a>
+                  <a href="https://acp-index.netflify.app/" target="_blank" rel="noreferrer">
+                    <img src={external} alt="external link icon"/>
                   </a>
                 </h4>
                 <p>
@@ -249,9 +253,12 @@ const ProjectsSection = () => {
             <li>
               <div>
                 <h4 className="project-title">
-                  bookbook
-                  <a href="https://github.com/openbookbook/">
+                  <a href="https://www.bookbookbook.club/" target="_blank" rel="noreferrer">bookbook</a>
+                  <a href="https://github.com/openbookbook/" target="_blank" rel="noreferrer">
                     <img src={github} alt="github icon"/>
+                  </a>
+                  <a href="https://www.bookbookbook.club/" target="_blank" rel="noreferrer">
+                    <img src={external} alt="external link icon"/>
                   </a>
                 </h4>
                 <p>
@@ -268,9 +275,12 @@ const ProjectsSection = () => {
               <img src={curbee} alt="curbee site"/>
               <div>
                 <h4 className="project-title">
-                  Curbee
-                  <a href="https://github.com/curbee-by-curbees/">
+                  <a href="https://www.curbee.app/" target="_blank" rel="noreferrer">Curbee</a>
+                  <a href="https://github.com/curbee-by-curbees/" target="_blank" rel="noreferrer">
                     <img src={github} alt="github icon"/>
+                  </a>
+                  <a href="https://www.curbee.app/" target="_blank" rel="noreferrer">
+                    <img src={external} alt="external link icon"/>
                   </a>
                 </h4>
                 <p>
