@@ -207,7 +207,7 @@ const langIcons = {
   swift: svg_swift,
   typescript: svg_typescript,
   elm: svg_elm
-}
+};
 
 const ProjectsSection = () => {
   const [rcvCode, setRcvCode] = React.useState('javascript');
@@ -219,7 +219,7 @@ const ProjectsSection = () => {
 
   const handleRCVChange = e => {
     setRcvCode(e.target.value);
-  }
+  };
 
   return <>
     <div id="projects" className="ProjectsSection">

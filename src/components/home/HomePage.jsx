@@ -1,34 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import InlineTextRadio from '../InlineTextRadio';
 import '../../style/home.scss';
 
 import svg from '../../assets/dentata.svg';
 import ProjectsSection from './ProjectsSection';
+import AboutSection from './AboutSection';
 
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
 const HomePage = () => {
-
-  const [output, setOutput] = React.useState(0);
-  const outputs = [
-    <div>
-      <p>I've worked on small teams for numerous full-stack applications using tools like React, NodeJS, Express, and more. I have a solid understanding of Javascript and Python and use them almost daily on personal and team projects.</p>
-      <br/>
-      <p>See some of my projects <a href="#projects">below</a> for some examples.</p>
-    </div>,
-    <div>
-      <p>Tools like deno, Elm, and Rust might still have a long way to go before they gain wide adoption, but I find that learning how to use well-built tools like these can teach us a lot about how to best use the tools we're already using.</p>
-      <br/>
-      <p>Check out my <Link className="special" to="/now">now</Link> page to see what I'm currently obsessing over!</p>
-    </div>,
-    <div>
-      <p>Modern HTML, CSS, and JavaScript are powerful and often-overlooked tools. When it comes to efficient, sustainable, and dependable web design, nothing really beats a static site with minimal dependencies.</p>
-      <br/>
-      <p>Click to checkout some of the <a className="special" href="https://culi.page/toys/" target="_blank" rel="noreferrer">toys</a> I've built for myself using vanilla HTML/CSS/Javascript!</p>
-    </div>
-  ];
 
   return <div className="HomePage">
     <div id="splash">
@@ -48,25 +28,7 @@ const HomePage = () => {
       </svg>
     </div>
 
-    <div id="about">
-      <section>
-        <h2 className="section-heading"><a href="#about">About</a></h2>
-        
-        <div>
-          <form onChange={e => setOutput(e.target.value)}>
-            I place a focus on having a solid grasp of <InlineTextRadio text="industry standard tools" name="overview" value={0} checked={true}/> and I genuinely enjoy picking up <InlineTextRadio text="up-and-coming technologies," name="overview" value={1}/> but I also have a deep appreciation for making things <InlineTextRadio text="by hand" name="overview" value={2}/>. 
-          </form>
-          <p>
-            I'm a versatile developer and an eclectic learner with a background in mathematics who likes to get their hands dirty with everything from convolutional neural networks to social choice theory. 
-          </p>
-          <p>
-            <Link to="/now">Click here to see what I'm doing now.</Link>
-            </p>
-        </div>
-
-        <output>{outputs[output % outputs.length]}</output>
-      </section>
-    </div>
+    <AboutSection/>
 
     <ProjectsSection/>
 
@@ -114,6 +76,13 @@ const HomePage = () => {
           <li>Ubuntu</li>
         </ul>
         {/*<span>Check out my <Link className="special" to="/uses">uses</Link> page for a more complete list of the tech that I use.</span>*/}
+        <span>For a more complete list of tools I use, please check out 
+          <a 
+            href="https://stackshare.io/tif-calin/my-stack"
+            target="_blank" 
+            rel="noreferrer"
+          > my Stackshare</a>!
+        </span>
       </section>
     </div>
 
