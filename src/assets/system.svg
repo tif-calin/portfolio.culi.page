@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700">
+  <defs>
+    <pattern id="circles" patternUnits="userSpaceOnUse" width="4" height="4">
+      <circle fill="#1b272f" cx="1" cy="1" r="0.5"></circle>
+    </pattern>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="700" fill="none"></rect>
+
+  <g transform="translate(70 70) scale(0.8)">
+
+    <g stroke-linecap="round" stroke-linejoin="round" stroke-width="1" stroke="#1b272f">
+      <circle cx="499" cy="560" r="70" fill="none" stroke-width="1"></circle>
+      <circle cx="499" cy="560" r="47" fill="#1b272f"></circle>
+
+      <circle cx="503" cy="651" r="24.5" fill="none" stroke-width="3"></circle>
+      <circle cx="503" cy="651" r="7" fill="#1b272f"></circle>
+
+      <circle cx="621" cy="438" r="39.5" fill="none" stroke-width="3"></circle>
+      <circle cx="621" cy="438" r="15" fill="#1b272f"></circle>
+
+      <circle cx="405" cy="64" r="32" fill="none" stroke-width="3"></circle>
+      <circle cx="405" cy="64" r="20" fill="none"></circle>
+
+      <circle cx="495" cy="399" r="102.5" fill="none" stroke-width="3"></circle>
+      <circle cx="495" cy="399" r="0" fill="#1b272f"></circle>
+
+      <polyline fill="url(#circles)" points="499,560 503,651 621,438 405,64 495,399"></polyline>
+    </g>
+
+  </g>
+</svg>

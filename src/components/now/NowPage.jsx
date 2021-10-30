@@ -4,7 +4,9 @@ import '../../style/now.scss';
 import NowSection from './NowSection.jsx';
 
 // const LAST_UPDATED = new Date('2021-09-18T18:48Z');
-const LAST_UPDATED = new Date('2021-10-11T18:55Z');
+const LAST_UPDATED = new Date('2021-10-30T04:01Z');
+
+console.log('%c Welcome to my now page!', 'background-color: #c1605c; color: #fafafa')
 
 const NowPage = () => {
 
@@ -17,6 +19,14 @@ const NowPage = () => {
 
       <section className="changelog-page">
         <h2>Changelog</h2>
+        <details>
+          <summary>2021, Oct 29</summary>
+          <ul>
+            <span>projects_existing_bookbook</span>
+            <span>projects_existing_nextblog</span>
+            <span>learning_langs_elm</span>
+          </ul>
+        </details>
         <details>
           <summary>2021, Oct 11</summary>
           <ul>
@@ -43,13 +53,16 @@ const NowPage = () => {
         title="Learning" 
         lists={{
           langs: {
-            Elm: <p>I'm in love with the design philosophy behind this project. I've been going through the Elm docs (which doubles as a tutorial) as well as exercises on <a href="https://exercism.org/tracks/elm" target="_blank" rel="noreferrer">exercism.org</a>.</p>, 
+            Elm: <>
+              <p>I'm in love with the design philosophy behind this project. I've been going through the Elm docs (which doubles as a tutorial) as well as exercises on <a href="https://exercism.org/tracks/elm" target="_blank" rel="noreferrer">exercism.org</a>.</p>
+              <p>(oct29) Still making my way through the Elm docs. The exercism track ended up being not as well made as I had hoped (tho it's open sourced so maybe I could fix that one day!). I haven't had as much time as I would've like to to work on Elm stuff, but I have a couple of projects I'm hoping to work on that I think Elm would be perfect for</p>
+            </>, 
             // Swift: <p>A friend of mine recently asked if I wanted to help them make a mood ring Apple Watch app. So I've been learning Swift.</p>, 
             Rust: <p>Rust is so in right now! It's a language I've wanted to learn for a long time and after going through this amazing introductory <a href="https://fasterthanli.me/articles/a-half-hour-to-learn-rust" target="_blank" rel="noreferrer">tutorial</a>, I got really motivated to dig in deeper. Soon I'll be able to <a href="https://github.com/ansuz/RIIR" target="_blank" rel="noreferrer">RIIR</a>!</p>, 
-            Typescript: <p>I've been practicing Typescript for a couple of months. I have a really solid understanding of Javascript and have experience with statically typed languages (Java and C++) so the basics were really easy to pick up.</p>
+            // Typescript: <p>I've been practicing Typescript for a couple of months. I have a really solid understanding of Javascript and have experience with statically typed languages (Java and C++) so the basics were really easy to pick up.</p>
           },
           tools: {
-            'Next.js': <p>I just finished building the next.js blog that the docs have you build. I've converted it to Typescript and have started customizing it. I also wrote my first blog post and published the blog using Vercel to <a href="https://blog.culi.page/">blog.culi.page</a>. Right now I'm working on buiding some custom components I'd like to use for my blog posts (e.g. references, headings with anchors, etc) and am trying to figure out how to hack remark.js to let me use React components in markdown.</p>,
+            // 'Next.js': <p>I just finished building the next.js blog that the docs have you build. I've converted it to Typescript and have started customizing it. I also wrote my first blog post and published the blog using Vercel to <a href="https://blog.culi.page/">blog.culi.page</a>. Right now I'm working on buiding some custom components I'd like to use for my blog posts (e.g. references, headings with anchors, etc) and am trying to figure out how to hack remark.js to let me use React components in markdown.</p>,
             Docker: <p>While in college, I wrote a Discord bot in Python to message our discord whenever the our student senate website was updated with a new bill. At some point I was trying to give the program to a friend who could run it 24/7 and he casually told me to "just put it in a Docker container." To this day, I'm still working on porting old Python projects into Docker containers. Right now I want to take some Python code I wrote to scrape website for catfood data for a project I'm working on (see: catfood.fyi below).</p>, 
             // Redis: <p>I've recently realized Redis is not just a way to supplement your database but can actually BE your database. So I've been digging into it more deeply to see how I could implement it in some of my side projects.</p>
           }
@@ -62,17 +75,28 @@ const NowPage = () => {
         lists={{
           existing: {
             'acp-index': <p>
-              Today, we finally merged some features I worked on a couple of weeks ago that ditches our auth system to utilize GitHub's OAuth API. In addition, I've been meeting up biweekly with some past team members to add new features and polish the UX.
+              (oct11) Today, we finally merged some features I worked on a couple of weeks ago that ditches our auth system to utilize GitHub's OAuth API. In addition, I've been meeting up biweekly with some past team members to add new features and polish the UX.
             </p>,
-            bookbook: <p>
-              One of my favorite projects I've worked on was an app, called <a href="https://bookbookbook.club/">bookbook</a>, which helps book clubs democratically vote on which book to read next using ranked choice voting. I've been working on updating the old code to utilize modern React features and be more responsive on mobile.
-            </p>,
+            bookbook: <>
+              <p>
+                One of my favorite projects I've worked on was an app, called <a href="https://bookbookbook.club/">bookbook</a>, which helps book clubs democratically vote on which book to read next using ranked choice voting. I've been working on updating the old code to utilize modern React features and be more responsive on mobile.
+              </p>
+              <p>
+                (oct29) Finally managed to update the old bookbook two days ago. It's been switched over to functional components so that we can utilize React hooks! I also update the style pretty significantly though I think the overall feel is the same. It looks a lot better on mobile now as well. There's still a lot to polish under the hood, but the big stuff is finally out of the way and I'm really looking forwards to working on some actual new features!
+              </p>
+            </>,
+            nextblog: <>
+              <p>
+                (oct29) To practice Next.js and my Typescript skills, I decided to make a blog! I'm really inspired by interactive blogs like Nicky Case's "interactive explorables" and I hope to get my blog posts to that level of interactivity. I got my first post up. It's a guide on building the perfect cat garden. <a href="https://blog.culi.page/">Check it out</a>!
+              </p>
+            </>,
             // votevote: ``
           },
           new: {
             // 'mood ring apple watch app': <p>A friend of mine wanted to work on an Apple Watch app. I'm fascinated by the different design philosophies that have to be adapted to make a good app on such a medium. The end goal is some sort of "mood ring" app that takes into account biometric data! Right now I'm mostly just practicing my Swift.</p>,
-            'catfood.fyi': <><p>I wrote a couple of Python scrapers before to scrape catfood data from various sites. This was mostly for my own personal benefit at first (I have two lovely cats). I wanted to collect macronutrient, price, and ingredient data and then analyze to find the best quality and lowest costing (did you know catfood had the highest increase in shoplifting rates of any grocery store product during the pandemic??) catfoods available. I think this data and these tools could really come in handy to other cat parents and want to build out a website that allows people to access them. For now I'm trying to consolidate my various bits of relevant Python code to put into a public repo.</p>
-            <p>I made a page outlining some of my goals for this project <a href="https://culi.page/cats">here</a>!</p>
+            'catfood.fyi': <>
+              <p>I wrote a couple of Python scrapers before to scrape catfood data from various sites. This was mostly for my own personal benefit at first (I have two lovely cats). I wanted to collect macronutrient, price, and ingredient data and then analyze to find the best quality and lowest costing (did you know catfood had the highest increase in shoplifting rates of any grocery store product during the pandemic??) catfoods available. I think this data and these tools could really come in handy to other cat parents and want to build out a website that allows people to access them. For now I'm trying to consolidate my various bits of relevant Python code to put into a public repo.</p>
+              <p>I made a page outlining some of my goals for this project <a href="https://culi.page/cats">here</a>!</p>
             </>,
             'sort-filter-query': <>
               <p>
@@ -91,7 +115,7 @@ const NowPage = () => {
         start="all the colorspaces"
       />
 
-      <NowSection
+      {/* <NowSection
         title="Reading"
         lists={{
           books: {
@@ -114,7 +138,7 @@ const NowPage = () => {
           }
         }}
         start="All About Love"
-      />
+      /> */}
 
       {/* <NowSection
         title="Backburner"
