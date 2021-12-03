@@ -4,6 +4,7 @@ import '../../style/home.scss';
 import svg from '../../assets/dentata.svg';
 import ProjectsSection from './ProjectsSection';
 import AboutSection from './AboutSection';
+import Socials from '../common/Socials';
 
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -16,6 +17,7 @@ const HomePage = () => {
         <div>
           <h1>{randomGreeting}<span className="highlight">,</span> I<span className="highlight">'</span>m Culi!</h1>
           <span>full-stack software engineer</span>
+          <Socials/>  
         </div>
 
         <img src={svg} alt="dentata"/>
