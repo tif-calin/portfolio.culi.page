@@ -146,30 +146,5 @@ body {
       display: flex;
       align-items: center;
     }
-
-    .links {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      img {
-        max-width: var(--font-size);
-        height: var(--font-size);
-      }
-
-      a { transition: filter var(--transition-length); }
-      
-      &:hover {
-        a { 
-          opacity: 0.5; 
-          filter: opacity(0.5);
-        }
-
-        a:hover {
-          opacity: 1;
-          filter: opacity(1);
-        }
-      }
-    }
   }
 }

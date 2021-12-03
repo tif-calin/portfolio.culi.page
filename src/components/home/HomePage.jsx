@@ -1,30 +1,27 @@
 import React from 'react';
-import '../../style/home.scss';
 
-import svg from '../../assets/dentata.svg';
 import ProjectsSection from './ProjectsSection';
 import AboutSection from './AboutSection';
+import SplashSection from './SplashSection';
 
-const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Hiya'];
-const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+import '../../style/home.scss';
 
 const HomePage = () => {
 
   return <div className="HomePage">
-    <div id="splash">
-      <section>
-        <div>
-          <h1>{randomGreeting}<span className="highlight">,</span> I<span className="highlight">'</span>m Culi!</h1>
-          <span>full-stack software engineer</span>
-        </div>
-
-        <img src={svg} alt="dentata"/>
-      </section>
-    </div>
+    <SplashSection/>
 
     <div className="wave-top">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path stroke="#3f474f" strokeWidth="3" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0" className="shape-fill"></path>
+        <path 
+          stroke="#3f474f" 
+          strokeWidth="3" 
+          d="
+            M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,
+            127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,
+            95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0
+          " 
+          className="shape-fill"/>
       </svg>
     </div>
 
@@ -96,4 +93,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

@@ -1,7 +1,5 @@
 import React from 'react';
-import email from '../../assets/email.svg';
-import linkedin from '../../assets/linkedin.svg';
-import github from '../../assets/github.svg';
+import Socials from '../common/Socials';
 
 const Footer = () => {
   return <>
@@ -9,17 +7,7 @@ const Footer = () => {
       <a href="https://github.com/tif-calin/portfolio.culi.page">
         &#x1f12f; steal this
       </a>
-      <ul className="links">
-        <a href="mailto:culitif@tuta.io">
-          <img src={email} alt="email"/>
-        </a>
-        <a href="https://www.linkedin.com/in/tif-calin/">
-          <img src={linkedin} alt="linkedin"/>
-        </a>
-        <a href="https://github.com/tif-calin/">
-          <img src={github} alt="github" />
-        </a>
-      </ul>
+      <Socials/>
     </footer>
   </>;
 };
