@@ -32,44 +32,46 @@
   }
 }
 
-#splash {
-  section {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    min-height: calc(100vh - 6rem);
+#splash section {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-height: calc(100vh - 6rem);
 
-    & > img {
-      max-width: 65%;
-      min-width: 35rem;
-      shape-outside: circle();
-      //shape-outside: polygon(4.82% 9.46%, 21.8% 17.69%, 19.49% 7.84%, 32.68% 4.81%, 48.92% 23%, 71.71% 3.13%, 94.77% 8.37%, 82.89% 36.26%, 100.11% 36.64%, 76.9% 47.16%, 99.96% 69.78%, 96.43% 86.43%, 75.69% 83.48%, 70.58% 99.96%, 50.62% 89.37%, 29.08% 99.9%, 27.91% 87.85%, 1.13% 80.7%, 1.84% 68.93%, 23.76% 48.59%, 0.87% 39.31%, 0.76% 16.09%);
-      transition: filter 0.5s;
-      animation: small-spin 120s ease-in-out 1s infinite;
-      animation-play-state: paused;
+  & > img {
+    max-width: 65%;
+    min-width: 35rem;
+    shape-outside: circle();
+    //shape-outside: polygon(4.82% 9.46%, 21.8% 17.69%, 19.49% 7.84%, 32.68% 4.81%, 48.92% 23%, 71.71% 3.13%, 94.77% 8.37%, 82.89% 36.26%, 100.11% 36.64%, 76.9% 47.16%, 99.96% 69.78%, 96.43% 86.43%, 75.69% 83.48%, 70.58% 99.96%, 50.62% 89.37%, 29.08% 99.9%, 27.91% 87.85%, 1.13% 80.7%, 1.84% 68.93%, 23.76% 48.59%, 0.87% 39.31%, 0.76% 16.09%);
+    transition: filter 0.5s;
+    animation: small-spin 120s ease-in-out 1s infinite;
+    animation-play-state: paused;
 
-      &:hover {
-        filter: drop-shadow(0 0 0.25rem var(--color-text));
-        animation-play-state: running;
-      }
+    &:hover {
+      filter: drop-shadow(0 0 0.25rem var(--color-text));
+      animation-play-state: running;
     }
+  }
 
-    h1 {
-      font-size: 5rem;
-      line-height: 1.05;
-    }
+  h1 {
+    font-size: 5rem;
+    line-height: 1.05;
+  }
 
-    span {
-      font-size: var(--font-size);
-      font-weight: 550;
-    }
+  span {
+    font-size: var(--font-size);
+    font-weight: 550;
+  }
 
-    .highlight {
-      color: var(--color-secondary);
-      font: inherit;
-      font-weight: inherit;
-      font-size: inherit;
-    }
+  ul {
+    margin-top: 2.5rem;
+  }
+
+  .highlight {
+    color: var(--color-secondary);
+    font: inherit;
+    font-weight: inherit;
+    font-size: inherit;
   }
 }
 

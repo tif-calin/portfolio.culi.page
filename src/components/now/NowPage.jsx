@@ -10,8 +10,7 @@ console.log('%c Welcome to my now page!', 'background-color: #c1605c; color: #fa
 
 const NowPage = () => {
 
-  return <>
-
+  return (
     <div className="NowPage">
       <h1>
         Welcome to my <a href="https://nownownow.com/" target="_blank" rel="noreferrer">now</a> page!
@@ -165,7 +164,7 @@ const NowPage = () => {
         Up to date as of <span>{date2text(LAST_UPDATED)}</span>
       </p>
     </div>
-  </>;
+  );
 };
 
 export default NowPage;
