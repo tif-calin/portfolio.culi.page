@@ -172,7 +172,8 @@
             "rust",
             "swift",
             "typescript",
-            "ts"
+            "ts",
+            "ruby"
           ]
         }
       ]
