@@ -9,8 +9,9 @@ import external from '../../assets/external.svg';
 import svg_elm from '../../assets/elm.svg';
 import svg_javascript from '../../assets/javascript.svg';
 import svg_python from '../../assets/python.svg';
+import svg_ruby from '../../assets/ruby.svg';
 // import svg_rust from '../../assets/rust.svg';
-import svg_swift from '../../assets/swift.svg';
+// import svg_swift from '../../assets/swift.svg';
 import svg_typescript from '../../assets/typescript.svg';
 
 const rcvDocstrings = {
@@ -138,7 +139,7 @@ const rcvCodes = {
         
       return rounds
   `.replace(/\n {4}/g, '\n').trim(),
-  swift: `/* swift implmentation coming soon */`,
+  // swift: `/* swift implmentation coming soon */`,
   typescript: `
     "use strict";
 
@@ -197,14 +198,64 @@ const rcvCodes = {
     };
   `.replace(/\n {4}/g, '\n').trim(),
   elm: `{- elm implementation coming soon -}`,
+  ruby: `
+    class RCVElection
+      attr_reader :ballots, :winners, :rounds
+
+      def initialize(candidates, ballots)
+        @candidates = Set.new candidates.uniq
+        @ballots = ballots.map {|ballot| ballot.select {|cnd| @candidates.include?(cnd)}}
+
+        get_results
+      end
+
+      def get_results
+        rounds = Array.new
+
+        dropped = Set.new
+        no_winner = true
+        while no_winner
+          new_round = {}
+
+          # calc number of first picks for each candidate
+          @ballots.each do |ballot|
+            vote = ballot.find {|elem| !dropped.include?(elem)}
+            if vote
+              new_round[vote] ||= 0
+              new_round[vote] += 1
+            end
+          end
+
+          # drop all the candidates with the lowest score
+          min = new_round.values.min
+          dropped += new_round.keys.select {|key| new_round[key] == min}
+
+          # check if they're all tied or if someone's won
+          max = new_round.values.max
+          tot = new_round.values.sum
+          if max > tot / 2 || new_round.values.uniq.size == 1
+            no_winner = false
+          end
+
+          puts new_round
+          rounds.push(new_round)
+        end
+
+        max = rounds[-1].values.max
+        @winners = rounds[-1].keys.select {|key| rounds[-1][key] == max}
+        @rounds = rounds
+      end
+    end
+  `.replace(/\n {4}/g, '\n').trim(),
   //rust: `rust implementation coming soon`,
 };
 
 const langIcons = {
   javascript: svg_javascript,
   python: svg_python,
+  ruby: svg_ruby,
   // rust: svg_rust,
-  swift: svg_swift,
+  // swift: svg_swift,
   typescript: svg_typescript,
   elm: svg_elm
 };
@@ -310,7 +361,10 @@ const ProjectsSection = () => {
                           defaultChecked={rcvCode === lang}
                         />
                         <span>
-                          <img src={langIcons[lang]} alt={lang + ' icon'}/>
+                          <img 
+                            src={langIcons[lang]} 
+                            alt={`icon for the ${lang} programming language`}
+                          />
                           <span>{lang}</span>
                         </span>
                       </label>
