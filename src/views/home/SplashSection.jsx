@@ -1,4 +1,4 @@
-import Socials from '../common/Socials';
+import Socials from '../../components/Socials';
 
 import svg from '../../assets/dentata.svg';
 

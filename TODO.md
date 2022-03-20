@@ -8,5 +8,6 @@
  - [ ] preload svg in about section
  - [ ] fix syntax highlighter
  - [ ] rework styling of links for consistency
+ - [ ] replace all scss with styled-components
 
 

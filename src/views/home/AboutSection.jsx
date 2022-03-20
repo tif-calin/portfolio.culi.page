@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import InlineTextRadio from '../common/InlineTextRadio';
+import InlineTextRadio from '../../components/InlineTextRadio';
 import svgSystem from '../../assets/system.svg';
 
 const outputs = [
