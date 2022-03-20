@@ -6,9 +6,9 @@ import {
   useLocation,
   Navigate
 } from 'react-router-dom';
-import HomePage from '../home/HomePage';
-import NowPage from '../now/NowPage';
-import UsesPage from '../uses/UsesPage';
+import HomePage from '../../views/home/HomePage';
+import NowPage from '../../views/now/NowPage';
+import UsesPage from '../../views/uses/UsesPage';
 import Footer from './Footer';
 import Header from './Header';
 

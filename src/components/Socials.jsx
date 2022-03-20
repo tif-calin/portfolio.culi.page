@@ -1,6 +1,6 @@
-import email from '../../assets/email.svg';
-import linkedin from '../../assets/linkedin.svg';
-import github from '../../assets/github.svg';
+import email from '../assets/email.svg';
+import linkedin from '../assets/linkedin.svg';
+import github from '../assets/github.svg';
 import styled from 'styled-components';
 
 const Container = styled.ul`
