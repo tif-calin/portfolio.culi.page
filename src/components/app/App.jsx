@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { 
   BrowserRouter as Router, 
-  Switch,
+  Routes,
   Route,
-  Redirect,
-  useLocation
+  useLocation,
+  Navigate
 } from 'react-router-dom';
 import HomePage from '../home/HomePage';
 import NowPage from '../now/NowPage';
@@ -27,18 +27,14 @@ function App() {
     <Router className="App">
       <ScrollToTop/>
       <Header/>
-
       <main>
-        <Switch>
-
-          <Route exact path="/" component={HomePage}/>
-          <Route exact path="/now" component={NowPage}/>
-          <Route exact path="/uses" component={UsesPage}/>
-          <Redirect to="/"/>
-
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/now" element={<NowPage />} />
+          <Route exact path="/uses" element={<UsesPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </main>
-
       <Footer/>
     </Router>
   );

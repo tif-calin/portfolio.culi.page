@@ -266,6 +266,7 @@ const ProjectsSection = () => {
   React.useEffect(() => {
     const precode = document.querySelector('pre > code');
     Prism.highlightElement(precode);
+    Prism.highlightAll();
   }, [rcvCode]);
 
   const handleRCVChange = e => {

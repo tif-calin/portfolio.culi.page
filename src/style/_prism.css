@@ -1,5 +1,5 @@
-/* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+css+clike+javascript+bash+c+cpp+clojure+cobol+docker+elm+erlang+go+graphql+ini+java+latex+lisp+lua+markdown+markup-templating+nginx+php+plsql+python+r+jsx+tsx+regex+ruby+rust+sql+swift+typescript+uri */
+/* PrismJS 1.27.0
+https://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+css+clike+javascript+c+cpp+clojure+elixir+elm+erlang+go+graphql+java+javadoclike+jsdoc+json+json5+jsonp+lisp+lua+markup-templating+php+python+r+jsx+tsx+regex+ruby+rust+swift+typescript+uri */
 /*
  Solarized Color Schemes originally by Ethan Schoonover
  http://ethanschoonover.com/solarized
@@ -33,13 +33,14 @@ green     #859900
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #657b83; /* base00 */
+	
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
 
-	line-height: 1.25;
+	line-height: 1.5;
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -71,7 +72,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: var(--color-bg); /* base3 */
+	background-color: #fdf6e3; /* base3 */
 }
 
 /* Inline code */
@@ -149,3 +150,33 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
+/*
+Custom
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #657b83; /* base00 */
+	font-family: monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+
+	line-height: 1.25;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: var(--color-bg); /* base3 */
+}
