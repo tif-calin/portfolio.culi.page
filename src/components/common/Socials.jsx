@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 const Container = styled.ul`
   display: flex;
+  gap: 1rem;
+  min-width: 5rem;
 `;
 
 const Socials = () => {

@@ -141,7 +141,7 @@ body {
     justify-content: space-between;
     gap: 1.5rem;
     
-    * {
+    & > * {
       height: 100%;
       display: flex;
       align-items: center;
