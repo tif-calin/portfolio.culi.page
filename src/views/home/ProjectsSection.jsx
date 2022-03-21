@@ -1,7 +1,6 @@
 import React from 'react';
 import Prism from 'prismjs';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import syntaxStyle from '../../style/_prism.css';
+import CodeBlock from '../../components/CodeBlock';
 
 import acpindexpic from '../../assets/acpindex450.png';
 import bookbook from '../../assets/bookbook450.png';
@@ -265,14 +264,6 @@ const langIcons = {
 const ProjectsSection = () => {
   const [rcvCode, setRcvCode] = React.useState('javascript');
 
-  console.log(rcvCodes[rcvCode]);
-
-  React.useEffect(() => {
-    const precode = document.querySelector('pre > code');
-    Prism.highlightElement(precode);
-    Prism.highlightAll();
-  }, [rcvCode]);
-
   const handleRCVChange = e => {
     setRcvCode(e.target.value);
   };
@@ -376,9 +367,10 @@ const ProjectsSection = () => {
                     )
                   }
                 </nav>
-                <SyntaxHighlighter language={rcvCode} style={syntaxStyle}>
-                  {rcvCodes[rcvCode]}
-                </SyntaxHighlighter>
+                <CodeBlock
+                  language={rcvCode}
+                  code={rcvCodes[rcvCode]}
+                />
               </div>
             </li>
           </label>
