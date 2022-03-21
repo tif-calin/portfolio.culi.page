@@ -1,6 +1,6 @@
-import Socials from '../../components/Socials';
+import Socials from '../../../components/Socials';
 
-import svg from '../../assets/dentata.svg';
+import svg from '../../../assets/dentata.svg';
 
 const greetings = ['Hi', 'Hello', "Hello", 'Hey', 'Howdy', 'Hiya'];
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];

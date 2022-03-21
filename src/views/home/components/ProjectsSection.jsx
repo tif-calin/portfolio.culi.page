@@ -1,19 +1,20 @@
 import React from 'react';
-import Prism from 'prismjs';
-import CodeBlock from '../../components/CodeBlock';
+import CodeBlock from '../../../components/CodeBlock';
 
-import acpindexpic from '../../assets/acpindex450.png';
-import bookbook from '../../assets/bookbook450.png';
-import curbee from '../../assets/curbee450.png';
-import github from '../../assets/github.svg';
-import external from '../../assets/external.svg';
-import svg_elm from '../../assets/elm.svg';
-import svg_javascript from '../../assets/javascript.svg';
-import svg_python from '../../assets/python.svg';
-import svg_ruby from '../../assets/ruby.svg';
-// import svg_rust from '../../assets/rust.svg';
-// import svg_swift from '../../assets/swift.svg';
-import svg_typescript from '../../assets/typescript.svg';
+import acpindexpic from '../../../assets/acpindex450.png';
+import bookbook from '../../../assets/bookbook450.png';
+import curbee from '../../../assets/curbee450.png';
+import votevote from '../../../assets/votevote450.png';
+import github from '../../../assets/github.svg';
+import external from '../../../assets/external.svg';
+import svg_elm from '../../../assets/elm.svg';
+import svg_javascript from '../../../assets/javascript.svg';
+import svg_python from '../../../assets/python.svg';
+import svg_ruby from '../../../assets/ruby.svg';
+// import svg_rust from '../../../assets/rust.svg';
+// import svg_swift from '../../../assets/swift.svg';
+import svg_typescript from '../../../assets/typescript.svg';
+import IconLink from '../../../components/IconLink';
 
 const rcvDocstrings = {
   javascript: ``,
@@ -261,6 +262,16 @@ const langIcons = {
   elm: svg_elm
 };
 
+const projects = [
+  {
+    image: votevote,
+    title: 'VoteVote',
+    urlSource: 'https://github.com/tif-calin/votevote',
+    urlLive: 'https://votevote.page/',
+    description: 'An educational toy for voting theory nerds to simulate a single election across dozens of different voting methods including Ranked Choice, Approval, Borda Count, Copeland, FPTP, Condorcet, and many more you\'ve probably never heard of! Built with Typescript, React, D3, and Styled Components.'
+  }
+];
+
 const ProjectsSection = () => {
   const [rcvCode, setRcvCode] = React.useState('javascript');
 
@@ -273,6 +284,30 @@ const ProjectsSection = () => {
       <section>
         <h3 className="section-heading"><a href="#projects">Projects</a></h3>
         <ul>
+          {projects.map(({ image, title, description, urlLive, urlSource }, i) => <label key={title}>
+            <input type="checkbox" defaultChecked={true} />
+            <li>
+              {!!(i % 2) && <img src={image} alt="screenshot of site" />}
+              <div>
+                <h4 className="project-title">
+                  <a href={urlLive} target="_blank" rel="noreferrer">{title}</a>
+                  {urlSource && <IconLink
+                    icon={github}
+                    href={urlSource}
+                    desc="Source Code"
+                  />}
+                  {urlLive && <IconLink
+                    icon={external}
+                    href={urlLive}
+                    desc="Live Site"
+                  />}
+                </h4>
+                <p>{description}</p>
+              </div>
+              {!(i % 2) && <img src={image} alt="screenshot of site" />}
+            </li>
+
+          </label>)}
 
           <label>
             <input type="checkbox" defaultChecked={true}/>
@@ -280,7 +315,7 @@ const ProjectsSection = () => {
               <img src={acpindexpic} alt="acp index site"/>
               <div>
                 <h4 className="project-title">
-                  <a href="https://acp-index.netlify.app/" target="_blank" rel="noreferrer">ACP-Index</a>
+                  <a href="https://acp-index.netlify.app/" target="_blank" rel="noreferrer">ACP Index</a>
                   <a href="https://github.com/index-alchemy" target="_blank" rel="noreferrer">
                     <img src={github} alt="github icon"/>
                   </a>

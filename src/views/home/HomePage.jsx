@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ProjectsSection from './ProjectsSection';
-import AboutSection from './AboutSection';
-import SplashSection from './SplashSection';
+import ProjectsSection from './components/ProjectsSection';
+import AboutSection from './components/AboutSection';
+import SplashSection from './components/SplashSection';
 
 import '../../style/home.scss';
 
