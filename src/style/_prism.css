@@ -178,5 +178,5 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: var(--color-bg)!important; /* base3 */
+	background: var(--color-bg) !important; /* base3 */
 }
