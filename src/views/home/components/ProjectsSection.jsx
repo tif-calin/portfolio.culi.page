@@ -145,9 +145,7 @@ const rcvCodes = {
   typescript: `
     "use strict";
 
-    interface roundResult {
-      [key: string]: number
-    };
+    type roundResult = Record<string, number>;
     
     const rankedChoiceVote = (candidates: string[], votes: string[][]): roundResult[] => {
       // to keep track of every round
