@@ -262,6 +262,8 @@ const langIcons = {
   elm: svg_elm
 };
 
+Object.keys(langIcons).forEach(lang => import('prismjs/components/prism-' + lang));
+
 const projects = [
   {
     image: votevote,
