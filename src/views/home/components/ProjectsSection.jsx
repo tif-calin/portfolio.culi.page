@@ -1,13 +1,14 @@
 import React from 'react';
-
-import acpindexpic from '../../assets/acpindex450.png';
-import bookbook from '../../assets/bookbook450.png';
-import curbee from '../../assets/curbee450.png';
-import github from '../../assets/github.svg';
-import external from '../../assets/external.svg';
+// Components
 import RCVProject from './RCVProject';
-
-Object.keys(langIcons).forEach(lang => import('prismjs/components/prism-' + lang));
+import IconLink from '../../../components/IconLink';
+// Assets
+import acpindexpic from '../../../assets/acpindex450.png';
+import bookbook from '../../../assets/bookbook450.png';
+import curbee from '../../../assets/curbee450.png';
+import votevote from '../../../assets/votevote450.png';
+import github from '../../../assets/github.svg';
+import external from '../../../assets/external.svg';
 
 const projects = [
   {
@@ -25,30 +26,31 @@ const ProjectsSection = () => {
       <section>
         <h3 className="section-heading"><a href="#projects">Projects</a></h3>
         <ul>
-          {projects.map(({ image, title, description, urlLive, urlSource }, i) => <label key={title}>
-            <input type="checkbox" defaultChecked={true} />
-            <li>
-              {!!(i % 2) && <img src={image} alt="screenshot of site" />}
-              <div>
-                <h4 className="project-title">
-                  <a href={urlLive} target="_blank" rel="noreferrer">{title}</a>
-                  {urlSource && <IconLink
-                    icon={github}
-                    href={urlSource}
-                    desc="Source Code"
-                  />}
-                  {urlLive && <IconLink
-                    icon={external}
-                    href={urlLive}
-                    desc="Live Site"
-                  />}
-                </h4>
-                <p>{description}</p>
-              </div>
-              {!(i % 2) && <img src={image} alt="screenshot of site" />}
-            </li>
-
-          </label>)}
+          {projects.map(({ image, title, description, urlLive, urlSource }, i) => 
+            <label key={title}>
+              <input type="checkbox" defaultChecked={true} />
+              <li>
+                {!!(i % 2) && <img src={image} alt="screenshot of site" />}
+                <div>
+                  <h4 className="project-title">
+                    <a href={urlLive} target="_blank" rel="noreferrer">{title}</a>
+                    {urlSource && <IconLink
+                      icon={github}
+                      href={urlSource}
+                      desc="Source Code"
+                    />}
+                    {urlLive && <IconLink
+                      icon={external}
+                      href={urlLive}
+                      desc="Live Site"
+                    />}
+                  </h4>
+                  <p>{description}</p>
+                </div>
+                {!(i % 2) && <img src={image} alt="screenshot of site" />}
+              </li>
+            </label>
+          )}
 
           <label>
             <input type="checkbox" defaultChecked={true}/>

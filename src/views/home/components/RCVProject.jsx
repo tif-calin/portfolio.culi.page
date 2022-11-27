@@ -237,7 +237,7 @@ const rcvCodes = {
   //rust: `rust implementation coming soon`,
 };
 
-const langIcon = lang => require.context('../../assets')(`./${lang}.svg`).default;
+const langIcon = lang => require.context('../../../assets')(`./${lang}.svg`).default;
 
 const RCVProject = () => {  
   const [rcvCode, setRcvCode] = React.useState('javascript');
@@ -251,39 +251,41 @@ const RCVProject = () => {
     setRcvCode(e.target.value);
   };
 
-  return (<>
-    <h4 className="project-title">Polylingual RCV</h4>
-    <p>
-      Ranked choice voting, or instant runoff voting, is one of the simplest electoral system that allows voters to rank their preferred candidates in order. A personal project of mine has been to try to write an algorithm for RCV in as many programming languages as I can.
-    </p>
-    <div className="tabs" name="rcv-tabs">
-      <nav>
-        {
-          Object.keys(rcvCodes).map(lang =>
-            <label key={lang}>
-              <input
-                type="radio"
-                name="rcv-tabs"
-                value={lang}
-                onClick={handleRCVChange}
-                defaultChecked={rcvCode === lang}
-              />
-              <span>
-                <img 
-                  src={langIcon(lang)} 
-                  alt={`icon for the ${lang} programming language`}
+  return (
+    <>
+      <h4 className="project-title">Polylingual RCV</h4>
+      <p>
+        Ranked choice voting, or instant runoff voting, is one of the simplest electoral system that allows voters to rank their preferred candidates in order. A personal project of mine has been to try to write an algorithm for RCV in as many programming languages as I can.
+      </p>
+      <div className="tabs" name="rcv-tabs">
+        <nav>
+          {
+            Object.keys(rcvCodes).map(lang =>
+              <label key={lang}>
+                <input
+                  type="radio"
+                  name="rcv-tabs"
+                  value={lang}
+                  onClick={handleRCVChange}
+                  defaultChecked={rcvCode === lang}
                 />
-                <span>{lang}</span>
-              </span>
-            </label>
-          )
-        }
-      </nav>
-      <pre>
-        <code className={`language-${rcvCode}`}>{rcvCodes[rcvCode]}</code>
-      </pre>
-    </div>
-  </>);
+                <span>
+                  <img 
+                    src={langIcon(lang)} 
+                    alt={`icon for the ${lang} programming language`}
+                  />
+                  <span>{lang}</span>
+                </span>
+              </label>
+            )
+          }
+        </nav>
+        <pre>
+          <code className={`language-${rcvCode}`}>{rcvCodes[rcvCode]}</code>
+        </pre>
+      </div>
+    </>
+  );
 };
 
 export default RCVProject;
