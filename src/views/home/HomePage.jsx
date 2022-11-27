@@ -7,7 +7,6 @@ import SplashSection from './components/SplashSection';
 import '../../style/home.scss';
 
 const HomePage = () => {
-
   return <div className="HomePage">
     <SplashSection/>
 

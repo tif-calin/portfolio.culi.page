@@ -10,7 +10,7 @@ const SplashSection = () => {
     <div id="splash">
       <section>
         <div>
-          <h1>{randomGreeting}<span className="highlight">,</span> I<span className="highlight">'</span>m Culi!</h1>
+          <h1>{randomGreeting}<span className="highlight">,</span> I<span className="highlight">'</span>m Culi<span className="highlight">!</span></h1>
           <span>full-stack software engineer</span>
           <Socials/>  
         </div>
