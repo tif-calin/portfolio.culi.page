@@ -79,7 +79,6 @@
   background-color: var(--color-secondary);
   color: var(--color-text-inverse);
   padding: 5rem 0;
-  box-shadow: 0 0.3rem 0.5rem -0.15rem rgba(var(--color-border-rgb), 0.5);
   border-bottom: var(--border);
 
   section {
@@ -315,7 +314,6 @@
   padding: 5rem 0;
   clip-path: polygon(0 2rem, 100% 0, 100% 120%, 0 120%);
   border-bottom: 2px solid var(--color-border);
-  box-shadow: 0 0 0.5rem 0 var(--color-text);
   // text-shadow: 1px 1px var(--color-text), -1px -1px var(--color-text), 1px -1px var(--color-text), -1px 1px var(--color-text);
 
   &::before {
@@ -381,8 +379,7 @@
 
 .wave-top {
   line-height: 0;
-  transform: rotate(180deg);
-  filter: drop-shadow(0 -0.15rem 0.25rem var(--color-border));
+  transform: rotate(180deg) translateY(-2px);
   &:hover + div .toggle-text::after { opacity: 1; }
 
   .shape-fill {

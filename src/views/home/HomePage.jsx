@@ -33,13 +33,13 @@ const HomePage = () => {
         <h2 className="section-heading"><a href="#tools">Tools</a></h2>
         <ul>
           <h4>Languages</h4>
-          <li>JavaScript</li>
-          <li>Python</li>
           <li>TypeScript</li>
+          <li>Ruby</li>
+          <li>Python</li>
           <li>CSS</li>
           <li>HTML</li>
-          <li>SVG</li>
           <li>SQL</li>
+          <li>SVG</li>
         </ul>
         <ul>
           <h4>Frameworks</h4>
