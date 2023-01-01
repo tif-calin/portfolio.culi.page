@@ -237,7 +237,7 @@ const rcvCodes = {
   //rust: `rust implementation coming soon`,
 };
 
-const langIcon = lang => require.context('../../../assets')(`./${lang}.svg`).default;
+const langIcon = lang => require(`../../../assets/${lang}.svg`);
 
 const RCVProject = () => {  
   const [rcvCode, setRcvCode] = React.useState('javascript');
