@@ -5,7 +5,7 @@ const Footer = () => {
   return <>
     <footer className="Footer">
       <a href="https://github.com/tif-calin/portfolio.culi.page">
-        &#x1f12f; steal this
+        <span style={{ transform: "rotate(180deg)" }}>&copy;</span> steal this
       </a>
       <Socials/>
     </footer>
